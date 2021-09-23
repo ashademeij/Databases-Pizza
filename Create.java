@@ -4,7 +4,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;  
 
 public class Create{
-
+    /** 
+    * This method creates a database with a given String as it's name
+    * @param The name of the database
+    */
     public static void createNewDatabase(String fileName) {  
    
         String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/" + fileName;  
