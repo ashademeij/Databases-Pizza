@@ -1,4 +1,4 @@
-package CreateTables;
+package Tables;
 
 import java.sql.Connection;  
 import java.sql.DriverManager;  
@@ -17,6 +17,7 @@ public class CreateCustomerTable {
                 + " name text NOT NULL,\n"  
                 + " number integer NOT NULL, \n"
                 + " address text NOT NULL, \n"
+                + " area_code integer NOT NULL, \n"
                 + " no_of_orders integer NOT NULL, \n"
                 + ");";    
           

@@ -1,4 +1,4 @@
-package CreateTables;
+package Tables;
 
 import java.sql.Connection;  
 import java.sql.DriverManager;  

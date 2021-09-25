@@ -1,4 +1,4 @@
-package CreateTables;
+package Tables;
 
 import java.sql.Connection;  
 import java.sql.DriverManager;  
@@ -13,7 +13,7 @@ public class CreateOrderTable {
           
         // SQL statement for creating a new table  
         String sql = "CREATE TABLE IF NOT EXISTS customers (\n"  
-                + " id integer PRIMARY KEY AUTO_INCREMENT,\n"  
+                + " order_id integer PRIMARY KEY AUTO_INCREMENT,\n"
                 + " pizza text NOT NULL, \n"
                 + " drinks text NOT NULL,\n"  
                 + " dessert text NOT NULL,\n"
