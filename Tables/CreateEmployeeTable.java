@@ -13,7 +13,7 @@ public class CreateEmployeeTable {
           
         // SQL statement for creating a new table  
         String sql = "CREATE TABLE IF NOT EXISTS customers (\n"  
-                + " id integer PRIMARY KEY AUTO_INCREMENT,\n"  
+                + " customer_id integer PRIMARY KEY AUTO_INCREMENT,\n"
                 + " name text NOT NULL, \n"
                 + " gender text NOT NULL,\n"  
                 + " area_code integer NOT NULL, \n"
