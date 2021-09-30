@@ -1,5 +1,10 @@
 package Insert;
 
+import java.sql.Connection;  
+import java.sql.DriverManager;  
+import java.sql.PreparedStatement;  
+import java.sql.SQLException;  
+
 public class InsertDrink {
 
     private Connection connect() {  
@@ -15,7 +20,7 @@ public class InsertDrink {
     } 
 
     public void insert(int drink_id, String name, double cost_price) {  
-        String sql = "INSERT INTO drink(" + drink_id +"," + name + "," + cost_price + ")";  
+        String sql = "INSERT INTO drink ("+ drink_id + "," + name + "," + cost_price + ");";  
    
         try{  
             Connection conn = this.connect();  
@@ -32,11 +37,11 @@ public class InsertDrink {
     public static void main(String[] args) {  
    
         InsertDrink app = new InsertDrink();  
-        app.insert(01, "Coke", 2.50); 
-        app.insert(02, "Sprite", 2.50); 
-        app.insert(03, "Fanta", 2.50);  
-        app.insert(04, "Ice Tea", 2.50); 
-        app.insert(05, "Water", 2.50); 
+        app.insert(1,"Coke", 2.50); 
+        app.insert(2,"Sprite", 2.50); 
+        app.insert(3,"Fanta", 2.50);  
+        app.insert(4,"Ice_Tea", 2.50); 
+        app.insert(5,"Water", 2.50); 
      
  
     }

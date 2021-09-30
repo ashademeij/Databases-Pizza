@@ -20,7 +20,7 @@ public class InsertEmployee {
     }  
    
   
-    public void insert(int name, char gender, int area_code) {  
+    public void insert(String name, String gender, int area_code) {  
         String sql = "INSERT INTO customers(" + name +"," + gender + "," + area_code + ")";  
    
         try{  
@@ -28,7 +28,7 @@ public class InsertEmployee {
             PreparedStatement pstmt = conn.prepareStatement(sql); 
             //idk what this stuff is 
             pstmt.setString(1, name);  
-            pstmt.setDouble(2, number);  
+            pstmt.setString(2, gender);  
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -37,13 +37,14 @@ public class InsertEmployee {
    
     public static void main(String[] args) {  
    
-        InsertCustomer app = new InsertCustomer();  
+        InsertEmployee app = new InsertEmployee();  
         // insert three new rows  
-        app.insert("Michelle", 911, "Alexander Battalaan 24F",6221, 0);  
-        app.insert("McLaws", 40000, "Professor Pieter 21C",6224, 0);  
-        app.insert("Elme", 50000, "Tongerseweg 139 D07", 6213, 0);  
-        app.insert("Francesca", 60000, "Tongerseweg 139 D06",6213, 0); 
-        app.insert("Ryan", 7777, "Markt 34", 6226, 0);
+        app.insert("Jeffrey", "M", 6221);  
+        app.insert("Mary", "F", 6331);  
+        app.insert("Elroy", "M", 6444);  
+        app.insert("Amber", "F",6555); 
+        app.insert("Ryoko", "F", 6777);
+
     }  
    
 }  

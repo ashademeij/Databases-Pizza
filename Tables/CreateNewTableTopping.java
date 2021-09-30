@@ -12,10 +12,10 @@ public class CreateNewTableTopping {
         String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";
 
         // SQL statement for creating a new table
-        String sql = "CREATE TABLE IF NOT EXISTS toppings (\n"
-                + " topping_id integer PRIMARY KEY AUTO_INCREMENT,\n"
+        String sql = "CREATE TABLE IF NOT EXISTS toppings ("
+                + " topping_id integer PRIMARY KEY NOT NULL"
                 + " name text NOT NULL, \n"
-                + " cost_price integer NOT NULL,\n"
+                + " cost_price integer NOT NULL"
                 + ");";
 
         try{
@@ -23,15 +23,8 @@ public class CreateNewTableTopping {
             Statement stmt = conn.createStatement();
             stmt.execute(sql);
         } catch (SQLException e) {
-            System.out.println(e.getMessage());
+            System.out.println(e.getMessage()+"toppings");
         }
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        createNewTable();
     }
 
 }
