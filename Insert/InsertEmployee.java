@@ -20,7 +20,7 @@ public class InsertEmployee {
     }  
    
   
-    public void insert(String name, char gender, int area_code) {  
+    public void insert(int name, char gender, int area_code) {  
         String sql = "INSERT INTO customers(" + name +"," + gender + "," + area_code + ")";  
    
         try{  
