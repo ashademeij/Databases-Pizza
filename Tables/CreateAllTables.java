@@ -7,13 +7,13 @@ import java.sql.Statement;
 
 public class CreateAllTables{
     public static void main(String[] args){
-        //CreateCustomerTable.createNewTable();
-        //CreateDeliveryTable.createNewTable();
-        //CreateEmployeeTable.createNewTable();
-        //CreateNewTableDesserts.createNewTable();
-        CreateNewTableDrinks.createNewTable();
-        //CreateNewTablePizza.createNewTable();
-        //CreateNewTableTopping.createNewTable();
+        CreateCustomerTable.createNewTable(); //THIS WORKS YAYYY
+        CreateDeliveryTable.createNewTable();
+        CreateEmployeeTable.createNewTable();
+        CreateNewTableDesserts.createNewTable();
+        CreateNewTableDrinks.createNewTable();  //THIS WORKS YAYYY
+        CreateNewTablePizza.createNewTable();
+        CreateNewTableTopping.createNewTable();
 
     }
 }

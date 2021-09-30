@@ -18,13 +18,14 @@ public class CreateCustomerTable {
                 + " number integer NOT NULL, "
                 + " address text NOT NULL, "
                 + " area_code integer NOT NULL, "
-                + " no_of_orders integer NOT NULL, "
+                + " no_of_orders integer NOT NULL"
                 + ");";    
           
         try{  
             Connection conn = DriverManager.getConnection(url);  
             Statement stmt = conn.createStatement();  
             stmt.execute(sql);  
+            System.out.println("CUSTOMER TABLE IS CREATED");
         } catch (SQLException e) {  
             System.out.println(e.getMessage() + " Customers");  
         }  

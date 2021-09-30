@@ -20,15 +20,17 @@ public class InsertEmployee {
     }  
    
   
-    public void insert(String name, String gender, int area_code) {  
-        String sql = "INSERT INTO customers(" + name +"," + gender + "," + area_code + ")";  
+    public void insert(int employee_id, String name, String gender, int area_code) {  
+        String sql = "INSERT INTO employee(employee_id, name, gender,area_code) VALUES(?,?,?,?)"; 
    
         try{  
             Connection conn = this.connect();  
             PreparedStatement pstmt = conn.prepareStatement(sql); 
-            //idk what this stuff is 
-            pstmt.setString(1, name);  
-            pstmt.setString(2, gender);  
+            pstmt.setDouble(1, employee_id);
+            pstmt.setString(2, name);  
+            pstmt.setString(3, gender); 
+            pstmt.setDouble(4, area_code);
+
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  

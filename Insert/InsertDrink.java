@@ -19,8 +19,8 @@ public class InsertDrink {
         return conn;  
     } 
 
-    public void insert(int drink_id, String name, double cost_price) {  
-        String sql = "INSERT INTO drink ("+ drink_id + "," + name + "," + cost_price + ");";  
+    public void insert(int drink_id, String name, int cost_price) {  
+        String sql = "INSERT INTO drink (drink_id, name, cost_price) VALUES(?,?,?)";  
    
         try{  
             Connection conn = this.connect();  
@@ -37,11 +37,11 @@ public class InsertDrink {
     public static void main(String[] args) {  
    
         InsertDrink app = new InsertDrink();  
-        app.insert(1,"Coke", 2.50); 
-        app.insert(2,"Sprite", 2.50); 
-        app.insert(3,"Fanta", 2.50);  
-        app.insert(4,"Ice_Tea", 2.50); 
-        app.insert(5,"Water", 2.50); 
+        app.insert(1,"Coke", 2); 
+        app.insert(2,"Sprite", 2); 
+        app.insert(3,"Fanta", 2);  
+        app.insert(4,"Ice_Tea", 2); 
+        app.insert(5,"Water", 2); 
      
  
     }

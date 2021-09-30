@@ -3,7 +3,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;  
 import java.sql.PreparedStatement;  
 import java.sql.SQLException;  
-import java.util.function.DoublePredicate;
+
 
 public class InsertDesserts {
 
@@ -19,15 +19,15 @@ public class InsertDesserts {
         return conn;  
     } 
 
-    public void insert(String name, Double cost_price) {  
-        String sql = "INSERT INTO desserts(" + name + "," + cost_price + ")";  
+    public void insert(int desserts_id, String name, Double cost_price) {  
+        String sql = "INSERT INTO dessert (desserts_id, name, cost_price) VALUES(?,?,?)";
    
         try{  
             Connection conn = this.connect();  
             PreparedStatement pstmt = conn.prepareStatement(sql); 
-            //pstmt.setDouble(1, dessert_id);  
-            pstmt.setString(1, name);  
-            pstmt.setDouble(2, cost_price);  
+            pstmt.setDouble(1, desserts_id);  
+            pstmt.setString(2, name);  
+            pstmt.setDouble(3, cost_price);  
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -37,8 +37,8 @@ public class InsertDesserts {
     public static void main(String[] args) {  
    
         InsertDesserts app = new InsertDesserts();  
-        app.insert("Tiramisu", 3.50); 
-        app.insert("Ice Cream", 3.00); 
+        app.insert(1,"Tiramisu", 4.20); 
+        app.insert(2,"Ice Cream", 3.00); 
  
     }
     

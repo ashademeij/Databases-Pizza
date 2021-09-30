@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;  
    
-public class Select {  
+public class SelectDeliveries {  
    
     private Connection connect() {  
         // SQLite connection string  
@@ -21,7 +21,7 @@ public class Select {
    
   
     public void selectAll(){  
-        String sql = "SELECT * FROM customers";  
+        String sql = "SELECT * FROM delivery";  
           
         try {  
             Connection conn = this.connect();  
@@ -30,12 +30,12 @@ public class Select {
               
             // loop through the result set  
             while (rs.next()) {  
-                System.out.println(rs.getDouble("customer_id") +  "\t" +   
-                                   rs.getString("name") + "\t" +  
-                                   rs.getDouble("number")+ "\t" +
-                                   rs.getString("address")+ "\t" +
-                                   rs.getDouble("area_code")+ "\t" +
-                                   rs.getDouble("no_of_orders")+ "\t");  
+                System.out.println(rs.getDouble("delivery_id") +  "\t" +
+                                   rs.getDouble("customer_id") +  "\t" +    
+                                   rs.getString("time") + "\t" +  
+                                   rs.getDouble("status")+ "\t" +
+                                   rs.getDouble("area_code")+ "\t");
+                                   
             }  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -47,7 +47,7 @@ public class Select {
      * @param args the command line arguments 
      */  
     public static void main(String[] args) {  
-        Select app = new Select();  
+        SelectDeliveries app = new SelectDeliveries();  
         app.selectAll();  
     }  
    

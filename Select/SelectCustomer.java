@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;  
 import java.sql.Statement;  
    
-public class Select {  
+public class SelectCustomer {  
    
     private Connection connect() {  
         // SQLite connection string  
@@ -47,7 +47,7 @@ public class Select {
      * @param args the command line arguments 
      */  
     public static void main(String[] args) {  
-        Select app = new Select();  
+        SelectCustomer app = new SelectCustomer();  
         app.selectAll();  
     }  
    

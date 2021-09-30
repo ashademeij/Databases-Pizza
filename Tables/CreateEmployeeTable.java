@@ -12,17 +12,18 @@ public class CreateEmployeeTable {
         String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
           
         // SQL statement for creating a new table  
-        String sql = "CREATE TABLE IF NOT EXISTS customers ("  
-                + " customer_id integer PRIMARY KEY AUTOINCREMENT,"
+        String sql = "CREATE TABLE IF NOT EXISTS employee ("  
+                + " employee_id integer PRIMARY KEY,"
                 + " name text NOT NULL,"
                 + " gender text NOT NULL,"  
-                + " area_code integer NOT NULL,"
+                + " area_code integer NOT NULL"
                 + ");";    
           
         try{  
             Connection conn = DriverManager.getConnection(url);  
-            Statement stmt = conn.createStatement();  
-            stmt.execute(sql);  
+            Statement stmt = conn.createStatement(); 
+            stmt.execute(sql);
+            System.out.println("EMPLOYEE TABLE IS CREATED");  
         } catch (SQLException e) {  
             System.out.println(e.getMessage() + " Employees");  
         }  

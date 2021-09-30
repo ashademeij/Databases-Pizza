@@ -13,15 +13,16 @@ public class CreateNewTableTopping {
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS toppings ("
-                + " topping_id integer PRIMARY KEY NOT NULL"
-                + " name text NOT NULL, \n"
-                + " cost_price integer NOT NULL"
+                + " topping_id integer PRIMARY KEY NOT NULL,"
+                + " name text NOT NULL,"
+                + " s integer NOT NULL"
                 + ");";
 
         try{
             Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
             stmt.execute(sql);
+            System.out.println("TOPPINGS TABLE IS CREATED");
         } catch (SQLException e) {
             System.out.println(e.getMessage()+"toppings");
         }

@@ -13,9 +13,9 @@ public class CreateNewTablePizza {
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS pizza ("
-                + " pizza_id integer PRIMARY KEY NOT NULL"
-                + " name text NOT NULL, \n"
-                + " cost_price integer NOT NULL"
+                + " pizza_id integer PRIMARY KEY NOT NULL,"
+                + " name text NOT NULL,"
+                + " cost_price integer NOT NULL,"
                 + " vegeterian text NOT NULL"
                 + ");";
 
@@ -23,6 +23,7 @@ public class CreateNewTablePizza {
             Connection conn = DriverManager.getConnection(url);
             Statement stmt = conn.createStatement();
             stmt.execute(sql);
+            System.out.println("PIZZA TABLE IS CREATED");
         } catch (SQLException e) {
             System.out.println(e.getMessage() + " Pizza");
         }
