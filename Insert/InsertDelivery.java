@@ -5,10 +5,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;  
 import java.sql.SQLException; 
 import java.sql.Time;
-import java.util.Date;
-import java.text.SimpleDateFormat;
 
-   
+ 
 public class InsertDelivery {  
    
     private Connection connect() {  

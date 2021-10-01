@@ -41,11 +41,11 @@ public class InsertEmployee {
    
         InsertEmployee app = new InsertEmployee();  
         // insert three new rows  
-        app.insert("Jeffrey", "M", 6221);  
-        app.insert("Mary", "F", 6331);  
-        app.insert("Elroy", "M", 6444);  
-        app.insert("Amber", "F",6555); 
-        app.insert("Ryoko", "F", 6777);
+        app.insert(1,"Jeffrey", "M", 6221);  
+        app.insert(2,"Mary", "F", 6331);  
+        app.insert(3,"Elroy", "M", 6444);  
+        app.insert(4,"Amber", "F",6555); 
+        app.insert(5,"Ryoko", "F", 6777);
 
     }  
    

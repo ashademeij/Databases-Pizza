@@ -22,7 +22,7 @@ public class SelectCustomer {
   
     public void selectAll(){  
         String sql = "SELECT * FROM customers";  
-          
+        
         try {  
             Connection conn = this.connect();  
             Statement stmt  = conn.createStatement();  
