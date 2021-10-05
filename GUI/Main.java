@@ -7,9 +7,13 @@ import java.awt.*;
 public class Main extends JFrame{
     public static JPanel panel = new JPanel();
     public static JFrame frame = new JFrame("Pizza Menu");
+
     public static void main(String []args){
+
         window();
+
     }
+
     private static void window(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,300);
@@ -17,13 +21,12 @@ public class Main extends JFrame{
         addBasicComponents();
 
         frame.add(panel);
-        panel.setLayout(new BorderLayout());
 
-        frame.setLayout(null);
+        //frame.setLayout(null);
         frame.setVisible(true);
-        frame.revalidate();
     }
     public static void addBasicComponents(){
+        panel.setLayout(new BorderLayout());
         JLabel welcome = new JLabel("Pizzeria Masha");
         panel.add(welcome, BorderLayout.NORTH);
 
@@ -34,7 +37,6 @@ public class Main extends JFrame{
         panel.add(menuPizza, BorderLayout.EAST);
         
         panel.setBackground(Color.CYAN);
-        panel.validate();
 
         //JLabel pizzas = new JLabel("Choose your pizza");
         //panel.add(pizzas, BorderLayout.WEST);
