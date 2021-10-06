@@ -9,14 +9,18 @@ public class CreateNewTablePizza {
 
     public static void createNewTable() {
         // SQLite connection string
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS pizza ("
-                + " pizza_id integer PRIMARY KEY NOT NULL,"
-                + " name text NOT NULL,"
-                + " cost_price integer NOT NULL,"
-                + " vegeterian text NOT NULL"
+                + " pizza_id INTEGER PRIMARY KEY NOT NULL,"
+                + " name TEXT NOT NULL,"
+                + " cost_price INTEGER NOT NULL,"
+                + " vegeterian TEXT NOT NULL,"
+                + " toppings TEXT NOT NULL,"
+                + " profit INTEGER NOT NULL,"
+                + " VAT INTEGER NOT NULL,"
+                + " selling_price INTEGER NOT NULL"
                 + ");";
 
         try{
