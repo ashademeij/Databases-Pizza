@@ -45,6 +45,7 @@ public class SelectCustomer {
      * to display it on the GUI
      * @return An array list of all customers names and id's
      */
+    
     public ArrayList<String> selectName(){
         String sql = "SELECT customer_id, name FROM customers";
         ArrayList<String> result = new ArrayList<String>();
@@ -59,7 +60,7 @@ public class SelectCustomer {
             while (rs.next()) {
                 customer_id = rs.getDouble("customer_id");
                 name = rs.getString("name");
-                result.add(customer_id + name);
+                result.add(customer_id + " " + name);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
@@ -67,7 +68,7 @@ public class SelectCustomer {
 
         return result;
     }
-      
+    
      
     /** 
      * @param args the command line arguments 

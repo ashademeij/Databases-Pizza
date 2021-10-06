@@ -21,6 +21,8 @@ public class Main extends JFrame{
     public static GridBagLayout gl = new GridBagLayout();
     public static GridBagConstraints c = new GridBagConstraints();
 
+    public static String name;;
+
     static int width = 500;
     static int height = 300;
 
@@ -40,6 +42,10 @@ public class Main extends JFrame{
         logInF.setVisible(true);
        
     }
+    /**
+     * This method allows a user to log into their profile 
+     * Here they can place an order and see their number of past orders
+     */
     public static void customerLogIn(){
         logIn.setLayout(new GridBagLayout());
 
@@ -52,14 +58,48 @@ public class Main extends JFrame{
         SelectCustomer sc = new SelectCustomer();
         JComboBox customers = new JComboBox((sc.selectName()).toArray());
         c.gridx = 0;
-        c.gridy = 5;
+        c.gridy = 2;
         logIn.add(customers,c);
+        
+
+        //TODO: doesn't do the write thing, we wan't it to open another frame
+        customers.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                JComboBox customers = (JComboBox) event.getSource();
+
+                Object selected = customers.getSelectedItem();
+                for(int i=0; i<sc.selectName().size(); i++){
+                    if(selected.toString().equals(sc.selectName().get(i)))
+                        name = sc.selectName().get(i);
+                }
+                window();
+            }
+        });
+
+        JLabel createNew = new JLabel("or create new profile!");
+        c.gridx = 0;
+        c.gridy = 3;
+        logIn.add(createNew,c);
+
+        JButton createProfile = new JButton("Create new profile.");
+        c.gridx = 0;
+        c.gridy = 4;
+        logIn.add(createProfile,c);
+
+        createProfile.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                //createNewCustomer();
+            }
+        });
+
 
     }
+    
     public static void welcome(){
         select.setLayout(new GridBagLayout());
 
-        JLabel welcome = new JLabel("Welcome to Pizzeria Masha", SwingConstants.CENTER);
+        JLabel welcome = new JLabel("Welcome" + name + "to Pizzeria Masha", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridwidth = 5;
         c.gridy = 0;
