@@ -1,5 +1,7 @@
 package GUI;
 
+import Select.SelectCustomer;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -7,12 +9,20 @@ import java.awt.event.ActionListener;
 
 
 public class Main extends JFrame{
-    public static JPanel panel = new JPanel();
-    public static JPanel panel2 = new JPanel();
+    public static JPanel logIn = new JPanel();
+    public static JFrame logInF = new JFrame("Log in screen");
+
+    public static JPanel select = new JPanel();
     public static JFrame frame = new JFrame("Pizza Shop");
+
+    public static JPanel menuPanel = new JPanel();
     public static JFrame frame2 = new JFrame("Pizza Menu");
+
     public static GridBagLayout gl = new GridBagLayout();
     public static GridBagConstraints c = new GridBagConstraints();
+
+    static int width = 500;
+    static int height = 300;
 
     public static void main(String []args){
         window();
@@ -23,20 +33,37 @@ public class Main extends JFrame{
         c.weighty = 1;
         c.fill = GridBagConstraints.NONE;
 
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(500,300);
-        addBasicComponents();
-        frame.add(panel);
-        frame.setVisible(true);
+        logInF.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        logInF.setSize(width,height);
+        customerLogIn();
+        logInF.add(logIn);
+        logInF.setVisible(true);
        
     }
-    public static void addBasicComponents(){
-        panel.setLayout(new GridBagLayout());
+    public static void customerLogIn(){
+        logIn.setLayout(new GridBagLayout());
+
+        JLabel user = new JLabel("Select Customer Name");
+        c.gridx = 0;
+        c.gridwidth = 5;
+        c.gridy = 0;
+        logIn.add(user,c);
+
+        SelectCustomer sc = new SelectCustomer();
+        JComboBox customers = new JComboBox((sc.selectName()).toArray());
+        c.gridx = 0;
+        c.gridy = 5;
+        logIn.add(customers,c);
+
+    }
+    public static void welcome(){
+        select.setLayout(new GridBagLayout());
+
         JLabel welcome = new JLabel("Welcome to Pizzeria Masha", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridwidth = 5;
         c.gridy = 0;
-        panel.add(welcome,c);
+        select.add(welcome,c);
 
         JButton menuPizza = new JButton("Choose a pizza from our menu!");
         c.gridx = 0;
@@ -48,115 +75,133 @@ public class Main extends JFrame{
                 menu();
             }
         });
-        panel.add(menuPizza,c);
+        select.add(menuPizza,c);
 
         JButton diyPizza = new JButton("Make your own pizza!");
         c.gridx = 0;
         c.gridwidth = 5;
         c.gridy = 2;
-        panel.add(diyPizza,c);
+        select.add(diyPizza,c);
 
-
-        
-        panel.setBackground(Color.LIGHT_GRAY);
+        select.setBackground(Color.LIGHT_GRAY);
 
     }
     private static void menu(){
-        panel2.setLayout(new GridBagLayout());
+        menuPanel.setLayout(new GridBagLayout());
         frame.dispose();
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setSize(500,300);
         frame2.setVisible(true);
-        panel2.setLayout(gl);
+        menuPanel.setLayout(gl);
 
-        JLabel pizzas = new JLabel("Pizza's");
+        //adding each pizza
+        JLabel pizzas = new JLabel("Pizzas");
         c.gridx = 0;
         c.gridy = 0;
-        panel2.add(pizzas, c);
+        menuPanel.add(pizzas, c);
 
         JCheckBox margherita = new JCheckBox("Margherita");
         c.gridx = 0;
         c.gridy = 1;
-        panel2.add(margherita,c);
+        menuPanel.add(margherita,c);
 
         JCheckBox pepperoni = new JCheckBox("Pepperoni");
         c.gridx = 0;
         c.gridy = 2;
-        panel2.add(pepperoni,c);
+        menuPanel.add(pepperoni,c);
 
         JCheckBox hawaiian = new JCheckBox("Hawaiian");
         c.gridx = 0;
         c.gridy = 3;
-        panel2.add(hawaiian,c);
+        menuPanel.add(hawaiian,c);
 
         JCheckBox veggie = new JCheckBox("Veggie");
         c.gridx = 0;
         c.gridy = 4;
-        panel2.add(veggie,c);
+        menuPanel.add(veggie,c);
 
         JCheckBox tonno = new JCheckBox("Tonno");
         c.gridx = 0;
         c.gridy = 5;
-        panel2.add(tonno,c);
+        menuPanel.add(tonno,c);
 
         JCheckBox bbq = new JCheckBox("BBQ Chicken");
         c.gridx = 0;
         c.gridy = 6;
-        panel2.add(bbq,c);
+        menuPanel.add(bbq,c);
 
         JCheckBox cheeses = new JCheckBox("Four Cheese");
         c.gridx = 0;
         c.gridy = 7;
-        panel2.add(cheeses,c);
+        menuPanel.add(cheeses,c);
 
         JCheckBox funghi = new JCheckBox("Funghi");
         c.gridx = 0;
         c.gridy = 8;
-        panel2.add(funghi,c);
+        menuPanel.add(funghi,c);
 
         JCheckBox mediterranea = new JCheckBox("Mediterranea");
         c.gridx = 0;
         c.gridy = 9;
-        panel2.add(mediterranea,c);
+        menuPanel.add(mediterranea,c);
 
         JCheckBox spinaci = new JCheckBox("Spinachi");
         c.gridx = 0;
         c.gridy = 10;
-        panel2.add(spinaci,c);
+        menuPanel.add(spinaci,c);
 
-
+        //adding each drink
         JLabel drinks = new JLabel("Drinks");
         c.gridx = 5;
         c.gridwidth = 3;
         c.gridy = 0;
-        panel2.add(drinks,c);
+        menuPanel.add(drinks,c);
 
         JCheckBox coke = new JCheckBox("Coke");
         c.gridx = 5;
         c.gridy = 1;
-        panel2.add(coke,c);
+        menuPanel.add(coke,c);
 
         JCheckBox sprite = new JCheckBox("Sprite");
         c.gridx = 5;
         c.gridy = 2;
-        panel2.add(sprite,c);
+        menuPanel.add(sprite,c);
 
         JCheckBox fanta = new JCheckBox("Fanta");
         c.gridx = 5;
         c.gridy = 3;
-        panel2.add(fanta,c);
+        menuPanel.add(fanta,c);
 
         JCheckBox iceTea = new JCheckBox("Ice Tea");
         c.gridx = 5;
         c.gridy = 4;
-        panel2.add(iceTea,c);
+        menuPanel.add(iceTea,c);
 
         JCheckBox water = new JCheckBox("Water");
         c.gridx = 5;
         c.gridy = 5;
-        panel2.add(water,c);
+        menuPanel.add(water,c);
 
-        frame2.add(panel2);
+        //adding each dessert
+        JLabel desserts = new JLabel("Desserts");
+        c.gridx = 10;
+        c.gridwidth = 3;
+        c.gridy = 0;
+        menuPanel.add(desserts,c);
+
+        JCheckBox tiramisu = new JCheckBox("Tiramisu");
+        c.gridx = 10;
+        c.gridy = 1;
+        menuPanel.add(tiramisu,c);
+
+        JCheckBox iceCream = new JCheckBox("Ice Cream");
+        c.gridx = 10;
+        c.gridy = 2;
+        menuPanel.add(iceCream,c);
+
+        //total cost of order
+
+        frame2.add(menuPanel);
     }
     private static void toppings(){
         //JRadioButton radio[] = new JRadioButton();

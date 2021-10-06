@@ -1,10 +1,7 @@
 package Select;
-import java.sql.DriverManager;  
-import java.sql.Connection;  
-import java.sql.ResultSet;  
-import java.sql.SQLException;  
-import java.sql.Statement;  
-   
+import java.sql.*;
+import java.util.ArrayList;
+
 public class SelectCustomer {  
    
     private Connection connect() {  
@@ -39,8 +36,37 @@ public class SelectCustomer {
             }  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
-        }  
-    }  
+        }
+
+    }
+
+    /**
+     * This method selects the customer_id and name from the database of customers in order
+     * to display it on the GUI
+     * @return An array list of all customers names and id's
+     */
+    public ArrayList<String> selectName(){
+        String sql = "SELECT customer_id, name FROM customers";
+        ArrayList<String> result = new ArrayList<String>();
+        double customer_id;
+        String name;
+        try {
+            Connection conn = this.connect();
+            Statement stmt  = conn.createStatement();
+            ResultSet rs    = stmt.executeQuery(sql);
+
+            // loop through the result set
+            while (rs.next()) {
+                customer_id = rs.getDouble("customer_id");
+                name = rs.getString("name");
+                result.add(customer_id + name);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+        }
+
+        return result;
+    }
       
      
     /** 
