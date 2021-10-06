@@ -9,7 +9,7 @@ public class SelectEmployee {
    
     private Connection connect() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
         Connection conn = null;  
         try {  
             conn = DriverManager.getConnection(url);  
@@ -32,7 +32,7 @@ public class SelectEmployee {
             while (rs.next()) {  
                 System.out.println(rs.getDouble("employee_id") +  "\t" +
                                    rs.getString("name") + "\t" +  
-                                   rs.getDouble("gender")+ "\t" +
+                                   rs.getString("gender")+ "\t" +
                                    rs.getDouble("area_code")+ "\t");
                                    
             }  
