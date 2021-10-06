@@ -8,13 +8,13 @@ import java.sql.Statement;
 public class CreateNewTableDesserts {
     public static void createNewTable() {
         // SQLite connection string
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS dessert ("
-                + " desserts_id integer PRIMARY KEY,"
-                + " name text NOT NULL,"
-                + " cost_price integer NOT NULL"
+                + " desserts_id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+                + " name TEXT NOT NULL,"
+                + " cost_price INTEGER NOT NULL"
                 + ");";
 
         try{
