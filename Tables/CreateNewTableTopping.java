@@ -9,13 +9,13 @@ public class CreateNewTableTopping {
 
     public static void createNewTable() {
         // SQLite connection string
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";
 
         // SQL statement for creating a new table
         String sql = "CREATE TABLE IF NOT EXISTS toppings ("
-                + " topping_id integer PRIMARY KEY NOT NULL,"
-                + " name text NOT NULL,"
-                + " s integer NOT NULL"
+                + " topping_id INTEGER PRIMARY KEY NOT NULL,"
+                + " name TEXT NOT NULL,"
+                + " cost_price INTEGER NOT NULL"
                 + ");";
 
         try{
@@ -24,7 +24,7 @@ public class CreateNewTableTopping {
             stmt.execute(sql);
             System.out.println("TOPPINGS TABLE IS CREATED");
         } catch (SQLException e) {
-            System.out.println(e.getMessage()+"toppings");
+            System.out.println(e.getMessage()+" toppings");
         }
     }
 
