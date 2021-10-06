@@ -9,14 +9,14 @@ public class CreateEmployeeTable {
    
     public static void createNewTable() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
           
         // SQL statement for creating a new table  
         String sql = "CREATE TABLE IF NOT EXISTS employee ("  
-                + " employee_id integer PRIMARY KEY,"
-                + " name text NOT NULL,"
-                + " gender text NOT NULL,"  
-                + " area_code integer NOT NULL"
+                + " employee_id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+                + " name TEXT NOT NULL,"
+                + " gender TEXT NOT NULL,"  
+                + " area_code INTEGER NOT NULL"
                 + ");";    
           
         try{  
