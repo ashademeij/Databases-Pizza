@@ -1,6 +1,10 @@
 package GUI;
 
 import Select.SelectCustomer;
+import Select.SelectDesserts;
+import Select.SelectDrinks;
+import Select.SelectPizza;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,15 +24,42 @@ public class Main extends JFrame{
     public static GridBagLayout gl = new GridBagLayout();
     public static GridBagConstraints c = new GridBagConstraints();
 
-    public static String name;;
+    
+
+    public static String name;
+    public static double total;
 
     public static int width = 500;
     public static int height = 300;
 
+    public static SelectPizza allPizza = new SelectPizza();
+    public static JCheckBox margherita = new JCheckBox("Margherita");
+    public static JCheckBox pepperoni = new JCheckBox("Pepperoni");
+    public static JCheckBox hawaiian = new JCheckBox("Hawaiian");
+    public static JCheckBox veggie = new JCheckBox("Veggie");
+    public static JCheckBox tonno = new JCheckBox("Tonno");
+    public static JCheckBox bbq = new JCheckBox("BBQ Chicken");
+    public static JCheckBox cheeses = new JCheckBox("Four Cheese");
+    public static JCheckBox funghi = new JCheckBox("Funghi");
+    public static JCheckBox mediterranea = new JCheckBox("Mediterranea");
+    public static JCheckBox spinaci = new JCheckBox("Spinachi");
+
+    public static SelectDrinks allDrinks = new SelectDrinks();
+    public static JCheckBox coke = new JCheckBox("Coke");
+    public static JCheckBox sprite = new JCheckBox("Sprite");
+    public static JCheckBox fanta = new JCheckBox("Fanta");
+    public static JCheckBox iceTea = new JCheckBox("Ice Tea");
+    public static JCheckBox water = new JCheckBox("Water");
+
+    public static SelectDesserts allDesserts = new SelectDesserts();
+    public static JCheckBox tiramisu = new JCheckBox("Tiramisu");
+    public static JCheckBox iceCream = new JCheckBox("Ice Cream");
     public static void main(String []args){
         window();
     }
-
+    /**
+     * This method creates the initial customer log-in menu
+     */
     private static void window(){
         c.weightx = 1;
         c.weighty = 1;
@@ -95,7 +126,9 @@ public class Main extends JFrame{
 
 
     }
-    
+    /**
+     * This method create the window that directs the customer to choose from our menu or create their own pizza
+     */
     public static void welcome(){
         logInF.dispose();
         frame.setVisible(true);
@@ -132,6 +165,10 @@ public class Main extends JFrame{
         select.setBackground(Color.LIGHT_GRAY);
 
     }
+    /**
+     * This method shows the pizzeria's menu and allows a customer to pick whatever they want 
+     * 
+     */
     private static void menu(){
         menuPanel.setLayout(new GridBagLayout());
         frame.dispose();
@@ -146,52 +183,42 @@ public class Main extends JFrame{
         c.gridy = 0;
         menuPanel.add(pizzas, c);
 
-        JCheckBox margherita = new JCheckBox("Margherita");
         c.gridx = 0;
         c.gridy = 1;
         menuPanel.add(margherita,c);
 
-        JCheckBox pepperoni = new JCheckBox("Pepperoni");
         c.gridx = 0;
         c.gridy = 2;
         menuPanel.add(pepperoni,c);
-
-        JCheckBox hawaiian = new JCheckBox("Hawaiian");
+        
         c.gridx = 0;
         c.gridy = 3;
         menuPanel.add(hawaiian,c);
-
-        JCheckBox veggie = new JCheckBox("Veggie");
+        
         c.gridx = 0;
         c.gridy = 4;
         menuPanel.add(veggie,c);
-
-        JCheckBox tonno = new JCheckBox("Tonno");
+        
         c.gridx = 0;
         c.gridy = 5;
         menuPanel.add(tonno,c);
-
-        JCheckBox bbq = new JCheckBox("BBQ Chicken");
+        
         c.gridx = 0;
         c.gridy = 6;
         menuPanel.add(bbq,c);
 
-        JCheckBox cheeses = new JCheckBox("Four Cheese");
         c.gridx = 0;
         c.gridy = 7;
         menuPanel.add(cheeses,c);
 
-        JCheckBox funghi = new JCheckBox("Funghi");
         c.gridx = 0;
         c.gridy = 8;
         menuPanel.add(funghi,c);
 
-        JCheckBox mediterranea = new JCheckBox("Mediterranea");
         c.gridx = 0;
         c.gridy = 9;
         menuPanel.add(mediterranea,c);
-
-        JCheckBox spinaci = new JCheckBox("Spinachi");
+        
         c.gridx = 0;
         c.gridy = 10;
         menuPanel.add(spinaci,c);
@@ -203,27 +230,24 @@ public class Main extends JFrame{
         c.gridy = 0;
         menuPanel.add(drinks,c);
 
-        JCheckBox coke = new JCheckBox("Coke");
         c.gridx = 5;
         c.gridy = 1;
         menuPanel.add(coke,c);
 
-        JCheckBox sprite = new JCheckBox("Sprite");
         c.gridx = 5;
         c.gridy = 2;
         menuPanel.add(sprite,c);
 
-        JCheckBox fanta = new JCheckBox("Fanta");
         c.gridx = 5;
         c.gridy = 3;
         menuPanel.add(fanta,c);
 
-        JCheckBox iceTea = new JCheckBox("Ice Tea");
+
         c.gridx = 5;
         c.gridy = 4;
         menuPanel.add(iceTea,c);
 
-        JCheckBox water = new JCheckBox("Water");
+        
         c.gridx = 5;
         c.gridy = 5;
         menuPanel.add(water,c);
@@ -235,19 +259,95 @@ public class Main extends JFrame{
         c.gridy = 0;
         menuPanel.add(desserts,c);
 
-        JCheckBox tiramisu = new JCheckBox("Tiramisu");
+        
         c.gridx = 10;
         c.gridy = 1;
         menuPanel.add(tiramisu,c);
 
-        JCheckBox iceCream = new JCheckBox("Ice Cream");
+        
         c.gridx = 10;
         c.gridy = 2;
         menuPanel.add(iceCream,c);
 
         //total cost of order
-        
+        JButton calculate = new JButton("Click to calculate total");
+        c.gridx = 0;
+        c.gridy = 11;
+        menuPanel.add(calculate,c);
+
+        calculate.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                JLabel total = new JLabel();
+                total.setText(Double.toString(calculate()));
+                c.gridx = 0;
+                c.gridy = 12;
+                menuPanel.add(total,c);
+            }
+        });
+         
         frame2.add(menuPanel);
+    }
+    
+    //doesn't work
+    /**
+     * This returns the total of the customers order
+     * @return total
+     */
+    private static double calculate(){
+        if(margherita.isSelected()){
+            total += allPizza.selectCost("Magherita");
+        }
+        if(pepperoni.isSelected()){
+            total += allPizza.selectCost("Pepperoni");
+        }
+        if(hawaiian.isSelected()){
+            total += allPizza.selectCost("Hawaiian");
+        }
+        if(veggie.isSelected()){
+            total += allPizza.selectCost("Veggie");
+        }
+        if(tonno.isSelected()){
+            total += allPizza.selectCost("Tonno");
+        }
+        if(bbq.isSelected()){
+            total += allPizza.selectCost("BBQ Chicken");
+        }
+        if(cheeses.isSelected()){
+            total += allPizza.selectCost("Four cheese");
+        }
+        if(funghi.isSelected()){
+            total += allPizza.selectCost("Funghi");
+        }
+        if(mediterranea.isSelected()){
+            total += allPizza.selectCost("Mediterranea");
+        }
+        if(spinaci.isSelected()){
+            total += allPizza.selectCost("Spinaci");
+        }
+        if(coke.isSelected()){
+            total += allDrinks.selectCost("Coke");
+        }
+        if(sprite.isSelected()){
+            total += allDrinks.selectCost("Sprite");
+        }
+        if(fanta.isSelected()){
+            total += allDrinks.selectCost("Fanta");
+        }
+        if(iceTea.isSelected()){
+            total += allDrinks.selectCost("Ice_Tea");
+        }
+        if(water.isSelected()){
+            total += allDrinks.selectCost("Water");
+        }
+        if(tiramisu.isSelected()){
+            total += allDesserts.selectCost("Tiramisu");
+        }
+        if(iceCream.isSelected()){
+            total += allDesserts.selectCost("Ice Cream");
+        }
+        
+        return total;
+        
     }
     private static void toppings(){
     

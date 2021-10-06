@@ -4,7 +4,8 @@ import java.sql.DriverManager;
 import java.sql.Connection;  
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
-import java.sql.Statement;  
+import java.sql.Statement;
+import java.util.ArrayList;  
 
 public class SelectPizza {
 
@@ -21,6 +22,7 @@ public class SelectPizza {
     }  
 
     public void selectAll(){  
+
         String sql = "SELECT * FROM pizza";  
           
         try {  
@@ -43,6 +45,25 @@ public class SelectPizza {
             System.out.println(e.getMessage());  
         }  
     }  
+    //doesnt work because of database issue
+    public double selectCost(String name){
+        String sql = "SELECT selling_price FROM pizza WHERE name=" + name + ";";
+        double x = 0.00;
+
+        try {  
+            Connection conn = this.connect();  
+            Statement stmt  = conn.createStatement();  
+            ResultSet rs    = stmt.executeQuery(sql);  
+              
+            // loop through the result set  
+            while (rs.next()) {  
+                x = rs.getDouble("selling_price");   
+            }  
+        } catch (SQLException e) {  
+            System.out.println(e.getMessage());  
+        }  
+        return x;
+    }
 
       /** 
      * @param args the command line arguments 
