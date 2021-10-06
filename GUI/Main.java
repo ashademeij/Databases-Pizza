@@ -21,16 +21,16 @@ public class Main extends JFrame{
        
     }
     public static void addBasicComponents(){
-        panel.setLayout(new BorderLayout());
+        panel.setLayout(new GridLayout(4,4,4,4));
         JLabel welcome = new JLabel("Pizzeria Masha");
-        welcome.setSize(50,20);
-        panel.add(welcome, BorderLayout.NORTH);
+        
+        panel.add(welcome);
 
         JButton diyPizza = new JButton("Make your own pizza!");
-        panel.add(diyPizza, BorderLayout.WEST);
+        panel.add(diyPizza);
 
         JButton menuPizza = new JButton("Choose a pizza from our menu!");
-        panel.add(menuPizza, BorderLayout.EAST);
+        panel.add(menuPizza);
         
         panel.setBackground(Color.CYAN);
 
