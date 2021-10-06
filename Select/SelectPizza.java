@@ -10,7 +10,7 @@ public class SelectPizza {
 
     private Connection connect() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
         Connection conn = null;  
         try {  
             conn = DriverManager.getConnection(url);  
@@ -33,7 +33,11 @@ public class SelectPizza {
                 System.out.println(rs.getDouble("pizza_id") +  "\t" +   
                                    rs.getString("name") + "\t" +  
                                    rs.getDouble("cost_price")+ "\t" +
-                                   rs.getString("vegeterian")+ "\t" );  
+                                   rs.getString("vegeterian")+ "\t"  +
+                                   rs.getString("toppings") + "\t" +
+                                   rs.getDouble("profit") + "\t" +
+                                   rs.getDouble("vat") + "\t" +
+                                   rs.getDouble("selling_price") + "\t");
             }  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
