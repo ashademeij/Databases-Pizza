@@ -7,27 +7,23 @@ import java.awt.*;
 public class Main extends JFrame{
     public static JPanel panel = new JPanel();
     public static JFrame frame = new JFrame("Pizza Menu");
-
+    static int width = 5;
+    static int height = 2;
     public static void main(String []args){
-
         window();
-
     }
-
     private static void window(){
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(500,300);
-
         addBasicComponents();
-
         frame.add(panel);
-
-        //frame.setLayout(null);
         frame.setVisible(true);
+       
     }
     public static void addBasicComponents(){
         panel.setLayout(new BorderLayout());
         JLabel welcome = new JLabel("Pizzeria Masha");
+        welcome.setSize(50,20);
         panel.add(welcome, BorderLayout.NORTH);
 
         JButton diyPizza = new JButton("Make your own pizza!");
