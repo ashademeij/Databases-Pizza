@@ -9,7 +9,7 @@ import java.sql.Statement;
 public class SelectToppings {
     private Connection connect() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
         Connection conn = null;  
         try {  
             conn = DriverManager.getConnection(url);  
