@@ -9,7 +9,7 @@ public class InsertToppings {
 
     private Connection connect() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
         Connection conn = null;  
         try {  
             conn = DriverManager.getConnection(url);  
@@ -31,7 +31,7 @@ public class InsertToppings {
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
-            System.out.println("toppings create toppings");
+            System.out.println("NOT WORKING: TOPPINGS");
         }  
     } 
 
