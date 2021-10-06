@@ -62,7 +62,6 @@ public class Main extends JFrame{
         logIn.add(customers,c);
         
 
-        //TODO: doesn't do the write thing, we wan't it to open another frame
         customers.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JComboBox customers = (JComboBox) event.getSource();
@@ -97,9 +96,14 @@ public class Main extends JFrame{
     }
     
     public static void welcome(){
+        logInF.dispose();
+        frame.setVisible(true);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(width,height);
+        
         select.setLayout(new GridBagLayout());
 
-        JLabel welcome = new JLabel("Welcome" + name + "to Pizzeria Masha", SwingConstants.CENTER);
+        JLabel welcome = new JLabel("Welcome " + name + " to Pizzeria Masha!", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridwidth = 5;
         c.gridy = 0;
@@ -123,6 +127,7 @@ public class Main extends JFrame{
         c.gridy = 2;
         select.add(diyPizza,c);
 
+        frame.add(select);
         select.setBackground(Color.LIGHT_GRAY);
 
     }
@@ -244,7 +249,6 @@ public class Main extends JFrame{
         frame2.add(menuPanel);
     }
     private static void toppings(){
-        //JRadioButton radio[] = new JRadioButton();
-
+    
     }
 }
