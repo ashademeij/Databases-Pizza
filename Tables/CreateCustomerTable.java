@@ -9,16 +9,16 @@ public class CreateCustomerTable {
    
     public static void createNewTable() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
           
         // SQL statement for creating a new table  
         String sql = "CREATE TABLE IF NOT EXISTS customers ("  
-                + " customer_id integer PRIMARY KEY NOT NULL,"
-                + " name text NOT NULL,"  
-                + " number integer NOT NULL, "
-                + " address text NOT NULL, "
-                + " area_code integer NOT NULL, "
-                + " no_of_orders integer NOT NULL"
+                + " customer_id INTEGER PRIMARY KEY AUTO_INCREMENT,"
+                + " name TEXT NOT NULL,"  
+                + " number INTEGER NOT NULL, "
+                + " address TEXT NOT NULL, "
+                + " area_code INTEGER NOT NULL, "
+                + " no_of_orders INTEGER NOT NULL"
                 + ");";    
           
         try{  
