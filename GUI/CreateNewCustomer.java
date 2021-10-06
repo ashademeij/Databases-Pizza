@@ -22,7 +22,7 @@ public class CreateNewCustomer {
 
     public static GridBagLayout gl = new GridBagLayout();
     public static GridBagConstraints c = new GridBagConstraints();
-    public static int index = 5;
+    public static int index = 6;
     
     public static void fields(){
         cFrame.setVisible(true);
