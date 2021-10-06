@@ -9,15 +9,15 @@ public class CreateDeliveryTable {
    
     public static void createNewTable() {  
         // SQLite connection string  
-        String url = "jdbc:sqlite:/Users/helendemeij/Downloads/Databases-Pizza/Pizza_Shop.db";  
+        String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
           
         // SQL statement for creating a new table  
         String sql = "CREATE TABLE IF NOT EXISTS delivery ("  
-                + " delivery_id integer PRIMARY KEY NOT NULL,"  
-                + " customer_id integer NOT NULL,"  
+                + " delivery_id INTEGER PRIMARY KEY AUTO_INCREMENT,"  
+                + " customer_id INTEGER NOT NULL,"  
                 + " time DATETIME NOT NULL,"
-                + " status text NOT NULL,"
-                + " area_code integer NOT NULL"
+                + " status TEXT NOT NULL,"
+                + " area_code INTEGER NOT NULL"
                 + ");";    
           
         try{  
