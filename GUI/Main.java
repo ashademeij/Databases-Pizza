@@ -72,7 +72,7 @@ public class Main extends JFrame{
                     if(selected.toString().equals(sc.selectName().get(i)))
                         name = sc.selectName().get(i);
                 }
-                window();
+                welcome();
             }
         });
 
