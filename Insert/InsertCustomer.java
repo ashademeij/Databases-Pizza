@@ -31,7 +31,7 @@ public class InsertCustomer {
             pstmt.setString(4,address);
             pstmt.setDouble(5,area_code);
             pstmt.setDouble(6,no_of_orders);
-
+            
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -48,7 +48,6 @@ public class InsertCustomer {
         app.insert(4, "Francesca", 60000, "Tongerseweg 139 D06",6213, 0); 
         app.insert(5, "Ryan", 7777, "Markt 34", 6226, 0);
 
-        System.out.println("SUCCESSFUL");
     }  
    
 }  

@@ -1,7 +1,6 @@
 package GUI;
 
 import Select.SelectCustomer;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -23,8 +22,8 @@ public class Main extends JFrame{
 
     public static String name;;
 
-    static int width = 500;
-    static int height = 300;
+    public static int width = 500;
+    public static int height = 300;
 
     public static void main(String []args){
         window();
@@ -88,7 +87,9 @@ public class Main extends JFrame{
         createProfile.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                //createNewCustomer();
+                CreateNewCustomer newC = new CreateNewCustomer();
+                newC.fields();
+
             }
         });
 
@@ -245,7 +246,7 @@ public class Main extends JFrame{
         menuPanel.add(iceCream,c);
 
         //total cost of order
-
+        
         frame2.add(menuPanel);
     }
     private static void toppings(){
