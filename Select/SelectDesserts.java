@@ -40,7 +40,7 @@ public class SelectDesserts {
         }  
     }  
     public double selectCost(String name){
-        String sql = "SELECT cost_price FROM dessert WHERE name=" + name + ";";
+        String sql = "SELECT cost_price FROM dessert WHERE name='" + name + "';";
         double x = 0.00;
 
         try {  

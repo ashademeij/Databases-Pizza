@@ -39,7 +39,25 @@ public class SelectToppings {
             System.out.println(e.getMessage());  
         }  
     }  
-      
+
+    public double selectCost(String name){
+        String sql = "SELECT cost_price FROM toppings WHERE name='" + name + "';";
+        double x = 0.00;
+
+        try {  
+            Connection conn = this.connect();  
+            Statement stmt  = conn.createStatement();  
+            ResultSet rs    = stmt.executeQuery(sql);  
+              
+            // loop through the result set  
+            while (rs.next()) {  
+                x = rs.getDouble("cost_price");   
+            }  
+        } catch (SQLException e) {  
+            System.out.println(e.getMessage());  
+        }  
+        return x;
+    }
      
     /** 
      * @param args the command line arguments 

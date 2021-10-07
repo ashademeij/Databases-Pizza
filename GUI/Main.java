@@ -278,17 +278,18 @@ public class Main extends JFrame{
         calculate.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 JLabel total = new JLabel();
-                total.setText(Double.toString(calculate()));
-                c.gridx = 0;
-                c.gridy = 12;
+                total.setText(Double.toString(calculate()) + "€");
+                c.gridx = 3;
+                c.gridy = 11;
                 menuPanel.add(total,c);
+
+                frame2.setSize(width+1,height+1);
             }
         });
          
         frame2.add(menuPanel);
     }
     
-    //doesn't work
     /**
      * This returns the total of the customers order
      * @return total
