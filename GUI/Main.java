@@ -24,8 +24,8 @@ public class Main extends JFrame{
 
     public static String name;
 
-    public static int width = 500;
-    public static int height = 300;
+    public static int width = 800;
+    public static int height = 400;
 
     public static double id;
     
@@ -109,6 +109,14 @@ public class Main extends JFrame{
         frame.setSize(width,height);
         select.setLayout(new GridBagLayout());
 
+        if(name.equals("2.0 McLaws")){
+            JLabel discount = new JLabel("You qualify for a 10% discount. Use code 10PIZZA");
+            discount.setBackground(Color.RED);
+            c.gridx = 0;
+            c.gridy = 1;
+            select.add(discount,c);
+        }
+
         JLabel welcome = new JLabel("Welcome " + name + " to Pizzeria Masha!", SwingConstants.CENTER);
         c.gridx = 0;
         c.gridwidth = 5;
@@ -118,11 +126,11 @@ public class Main extends JFrame{
         JButton infoB = new JButton("Click for personal info");
         c.gridx = 10;
         c.gridwidth = 3;
-        c.gridy = 3;
+        c.gridy = 7;
 
         
         for(int i=1; i<sc.selectName().size(); i++){
-            if(name.charAt(2) == (sc.selectName().get(i).charAt(2)))
+            if(name.charAt(1) == (sc.selectName().get(i).charAt(1)))
                 id = (double)i;
         }
         
@@ -173,7 +181,7 @@ public class Main extends JFrame{
         JButton menuPizza = new JButton("Choose a pizza from our menu!");
         c.gridx = 0;
         c.gridwidth = 5;
-        c.gridy = 1;
+        c.gridy = 3;
         menuPizza.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -187,7 +195,7 @@ public class Main extends JFrame{
         JButton diyPizza = new JButton("Make your own pizza!");
         c.gridx = 0;
         c.gridwidth = 5;
-        c.gridy = 2;
+        c.gridy = 4;
 
         diyPizza.addActionListener(new ActionListener() {
             @Override

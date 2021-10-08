@@ -8,7 +8,7 @@ import java.sql.SQLException;
 public class InsertPizza {
 
     private Connection connect() {  
-        // SQLite connection string  
+
         String url = "jdbc:mysql://localhost/Pizza_Shop?user=root&password=asha1234";  
         Connection conn = null;  
         try {  
@@ -20,7 +20,7 @@ public class InsertPizza {
     }  
 
     public void insert(int pizza_id, String name, double cost_price, String  vegeterian, String toppings, double profit, double vat, double selling_price) {  
-        String sql = "INSERT INTO pizza(pizza_id, name, cost_price, vegeterian, toppings, profit, vat, total) VALUES(?,?,?,?,?,?,?,?)";  
+        String sql = "INSERT INTO pizza(pizza_id, name, cost_price, vegeterian, toppings, profit, vat, selling_price) VALUES(?,?,?,?,?,?,?,?)";  
    
         try{  
             Connection conn = this.connect();  
@@ -33,8 +33,8 @@ public class InsertPizza {
             pstmt.setDouble(6, profit);
             pstmt.setDouble(7, vat);
             pstmt.setDouble(8, selling_price);
-            
             pstmt.executeUpdate();  
+
             System.out.println("data inserted");
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  

@@ -26,7 +26,7 @@ public class Delete
       // create the mysql delete statement.
       // i'm deleting the row where the id is "3", which corresponds to my
       // "Barney Rubble" record.
-      String query = "DROP TABLE customers;";
+      String query = "DROP TABLE pizza;";
       PreparedStatement preparedStmt = conn.prepareStatement(query);
       //preparedStmt.setInt(1, 3);
 

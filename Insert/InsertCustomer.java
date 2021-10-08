@@ -21,7 +21,7 @@ public class InsertCustomer {
    
   
     public void insert(int customer_id, String name, int number, String address, int area_code, int no_of_pizzas) {  
-        String sql = "INSERT INTO customers(customer_id, name, number, address, area_code, no_of_pizzas) VALUES(?,?,?,?,?,?)";   
+        String sql = "INSERT INTO J(customer_id, name, number, address, area_code, no_of_pizzas) VALUES(?,?,?,?,?,?)";   
         try{  
             Connection conn = this.connect();  
             PreparedStatement pstmt = conn.prepareStatement(sql);  
