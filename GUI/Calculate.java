@@ -5,12 +5,13 @@ import java.util.ArrayList;
 public class Calculate {
     public static Menu m = new Menu();
     public static ArrayList<String> orderList = new ArrayList<String>();
-    public static double total;
+
     /**
      * This returns the total of the customers order
      * @return total
      */
     public static double calculate(){
+        double total = 0.00;
 
         if(m.margherita.isSelected()){
             total += m.allPizza.selectCost("Magherita");
