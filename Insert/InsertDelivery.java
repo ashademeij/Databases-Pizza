@@ -46,7 +46,7 @@ public class InsertDelivery {
    
         InsertDelivery app = new InsertDelivery();  
            
-        app.insert(1,1, Time.valueOf("14:00:00"), "cooking", 6221);  
+        app.insert(1,1, Time.valueOf("18:00:35"), "cooking", 6221);  
         app.insert(2, 2, Time.valueOf("17:12:53"),"out for delivery", 6331);  
         app.insert(3, 3, Time.valueOf("18:05:23"), "delivered", 6444);  
         app.insert(4, 4, Time.valueOf("10:07:55"), "processsing order",6555); 

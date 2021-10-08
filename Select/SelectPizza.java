@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.ResultSet;  
 import java.sql.SQLException;  
 import java.sql.Statement;
-import java.util.ArrayList;  
 
 public class SelectPizza {
 
@@ -24,7 +23,7 @@ public class SelectPizza {
     public void selectAll(){  
 
         String sql = "SELECT * FROM pizza";  
-          
+        
         try {  
             Connection conn = this.connect();  
             Statement stmt  = conn.createStatement();  
@@ -32,7 +31,7 @@ public class SelectPizza {
               
             // loop through the result set  
             while (rs.next()) {  
-                System.out.println(rs.getDouble("pizza_id") +  "\t" +   
+                System.out.println(rs.getInt("pizza_id") +  "\t" +   
                                    rs.getString("name") + "\t" +  
                                    rs.getDouble("cost_price")+ "\t" +
                                    rs.getString("vegeterian")+ "\t"  +

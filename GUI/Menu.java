@@ -5,10 +5,9 @@ import javax.swing.*;
 import Select.SelectDesserts;
 import Select.SelectDrinks;
 import Select.SelectPizza;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.util.ArrayList;
 import java.awt.*;
 
 public class Menu {
@@ -29,7 +28,7 @@ public class Menu {
     public static JCheckBox cheeses = new JCheckBox("Four Cheese");
     public static JCheckBox funghi = new JCheckBox("Funghi");
     public static JCheckBox mediterranea = new JCheckBox("Mediterranea");
-    public static JCheckBox spinaci = new JCheckBox("Spinachi");
+    public static JCheckBox spinaci = new JCheckBox("Spinaci");
 
     public static SelectDrinks allDrinks = new SelectDrinks();
     public static JCheckBox coke = new JCheckBox("Coke");
@@ -42,14 +41,34 @@ public class Menu {
     public static JCheckBox tiramisu = new JCheckBox("Tiramisu");
     public static JCheckBox iceCream = new JCheckBox("Ice Cream");
 
+    public static JFrame warn = new JFrame("Warning!");
+
+    public static ArrayList<JCheckBox> list = new ArrayList<JCheckBox>();
+
 
     public static int width = 500;
     public static int height = 300;
+    /**
+     * This method adds all the pizza's to an arraylist to iterate through it 
+     */
+    public static void addPiz(){
+        list.add(margherita);
+        list.add(pepperoni);
+        list.add(hawaiian);
+        list.add(veggie);
+        list.add(tonno);
+        list.add(bbq);
+        list.add(cheeses);
+        list.add(funghi);
+        list.add(mediterranea);
+        list.add(spinaci);
+    }
     /**
      * This method shows the pizzeria's menu and allows a customer to pick whatever they want 
      * 
      */
     public static void menu(){
+        addPiz();
         menuPanel.setLayout(new GridBagLayout());
         frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame2.setSize(500,300);
@@ -172,12 +191,32 @@ public class Menu {
         menuPanel.add(confirm,c);
 
         confirm.addActionListener(new ActionListener() {
+            
             public void actionPerformed(ActionEvent event) {
-                frame2.dispose();
-                ConfirmOrder confirmation = new ConfirmOrder();
-                confirmation.order();
+                
+                for(JCheckBox i : list){
+                    if(i.isSelected()){
+                        frame2.dispose();
+                        ConfirmOrder confirmation = new ConfirmOrder();
+                        confirmation.order();
+                    }else{
+                        
+                        JPanel w = new JPanel();
+                        w.setLayout(new GridBagLayout());
+                        warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        warn.setSize(200,150);
+                        
+                        JLabel warning = new JLabel("Please select a pizza!");
+                        warn.add(w);
+                        w.add(warning);
+                        warn.setVisible(true);
+                    }
+                }
+                
             }
         });
+        
+
          
         frame2.add(menuPanel);
     }

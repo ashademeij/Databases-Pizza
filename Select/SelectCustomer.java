@@ -3,6 +3,11 @@ import java.sql.*;
 import java.util.ArrayList;
 
 public class SelectCustomer {  
+    public static String name;
+    public static double number;
+    public static String address;
+    public static double area_code;
+    public static double no_of_pizzas;
    
     private Connection connect() {  
         // SQLite connection string  
@@ -17,8 +22,8 @@ public class SelectCustomer {
     }  
    
   
-    public void selectAll(){  
-        String sql = "SELECT * FROM customers";  
+    public void selectAll(double id){  
+        String sql = "SELECT * FROM customers WHERE customer_id='" + id + "';";  
         
         try {  
             Connection conn = this.connect();  
@@ -27,12 +32,19 @@ public class SelectCustomer {
               
             // loop through the result set  
             while (rs.next()) {  
+                name = rs.getString("name");
+                number = rs.getDouble("number");
+                address = rs.getString("address");
+                area_code = rs.getDouble("area_code");
+                no_of_pizzas = rs.getDouble("no_of_pizzas");
+
                 System.out.println(rs.getDouble("customer_id") +  "\t" +   
-                                   rs.getString("name") + "\t" +  
-                                   rs.getDouble("number")+ "\t" +
-                                   rs.getString("address")+ "\t" +
-                                   rs.getDouble("area_code")+ "\t" +
-                                   rs.getDouble("no_of_orders")+ "\t");  
+                                    name + "\t" +  
+                                   number + "\t" +
+                                   address + "\t" +
+                                   area_code + "\t" +
+                                   no_of_pizzas + "\t"
+                                   );  
             }  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -75,7 +87,7 @@ public class SelectCustomer {
      */  
     public static void main(String[] args) {  
         SelectCustomer app = new SelectCustomer();  
-        app.selectAll();  
+        //app.selectAll();  
     }  
    
 }  

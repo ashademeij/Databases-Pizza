@@ -20,8 +20,8 @@ public class InsertCustomer {
     }  
    
   
-    public void insert(int customer_id, String name, int number, String address, int area_code, int no_of_orders) {  
-        String sql = "INSERT INTO customers(customer_id, name, number, address, area_code, no_of_orders) VALUES(?,?,?,?,?,?)";   
+    public void insert(int customer_id, String name, int number, String address, int area_code, int no_of_pizzas) {  
+        String sql = "INSERT INTO customers(customer_id, name, number, address, area_code, no_of_pizzas) VALUES(?,?,?,?,?,?)";   
         try{  
             Connection conn = this.connect();  
             PreparedStatement pstmt = conn.prepareStatement(sql);  
@@ -30,8 +30,7 @@ public class InsertCustomer {
             pstmt.setDouble(3,number);
             pstmt.setString(4,address);
             pstmt.setDouble(5,area_code);
-            pstmt.setDouble(6,no_of_orders);
-            
+            pstmt.setDouble(6,no_of_pizzas);
             pstmt.executeUpdate();  
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
@@ -42,11 +41,11 @@ public class InsertCustomer {
    
         InsertCustomer app = new InsertCustomer();  
         // insert three new rows  
-        app.insert(1, "Michelle", 911, "Alexander Battalaan 24F",6221, 0);  
-        app.insert(2, "McLaws", 40000, "Professor Pieter 21C",6224, 0);  
-        app.insert(3, "Elme", 50000, "Tongerseweg 139 D07", 6213, 0);  
-        app.insert(4, "Francesca", 60000, "Tongerseweg 139 D06",6213, 0); 
-        app.insert(5, "Ryan", 7777, "Markt 34", 6226, 0);
+        app.insert(1, "Michelle", 911, "Alexander Battalaan 24F",6221,7);  
+        app.insert(2, "McLaws", 40000, "Professor Pieter 21C",6224, 9);  
+        app.insert(3, "Elme", 50000, "Tongerseweg 139 D07", 6213, 10);  
+        app.insert(4, "Francesca", 60000, "Tongerseweg 139 D06",6213, 300); 
+        app.insert(5, "Ryan", 7777, "Markt 34", 6226, 8);
 
     }  
    

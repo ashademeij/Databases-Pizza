@@ -14,14 +14,20 @@ public class Main extends JFrame{
     public static JPanel select = new JPanel();
     public static JFrame frame = new JFrame("Pizza Shop");
 
+    public static JPanel info = new JPanel();
+    public static JFrame infoF = new JFrame("Customer Information");
+
     public static GridBagLayout gl = new GridBagLayout();
     public static GridBagConstraints c = new GridBagConstraints();
+
+    public static SelectCustomer sc = new SelectCustomer();
 
     public static String name;
 
     public static int width = 500;
     public static int height = 300;
 
+    public static double id;
     
     public static void main(String []args){
         window();
@@ -99,11 +105,8 @@ public class Main extends JFrame{
      * This method create the window that directs the customer to choose from our menu or create their own pizza
      */
     public static void welcome(){
-        logInF.dispose();
-        frame.setVisible(true);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(width,height);
-        
         select.setLayout(new GridBagLayout());
 
         JLabel welcome = new JLabel("Welcome " + name + " to Pizzeria Masha!", SwingConstants.CENTER);
@@ -111,6 +114,61 @@ public class Main extends JFrame{
         c.gridwidth = 5;
         c.gridy = 0;
         select.add(welcome,c);
+
+        JButton infoB = new JButton("Click for personal info");
+        c.gridx = 10;
+        c.gridwidth = 3;
+        c.gridy = 3;
+
+        
+        for(int i=1; i<sc.selectName().size(); i++){
+            if(name.charAt(2) == (sc.selectName().get(i).charAt(2)))
+                id = (double)i;
+        }
+        
+
+        infoB.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                
+                infoF.setSize(150,height);
+                infoF.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                info.setLayout(gl);
+                
+                sc.selectAll(id);
+                JLabel name  = new JLabel(sc.name); 
+                System.out.println(name);
+                c.gridx = 0;
+                c.gridy = 0;
+                info.add(name,c);
+                
+                JLabel number = new JLabel(Double.toString(sc.number));
+                c.gridx = 0;
+                c.gridy = 1;
+                info.add(number,c);
+
+                JLabel address = new JLabel(sc.address);
+                c.gridx = 0;
+                c.gridy = 2;
+                info.add(address,c);
+
+                JLabel area_code = new JLabel(Double.toString(sc.area_code));
+                c.gridx = 0;
+                c.gridy = 3;
+                info.add(area_code,c);
+
+                JLabel no_of_pizzas = new JLabel(Double.toString(sc.no_of_pizzas));
+                c.gridx = 0;
+                c.gridy = 4;
+                info.add(no_of_pizzas,c);
+
+                infoF.add(info);
+                infoF.setVisible(true);            
+            }
+        });
+
+        select.add(infoB,c);
+        
 
         JButton menuPizza = new JButton("Choose a pizza from our menu!");
         c.gridx = 0;
@@ -141,8 +199,10 @@ public class Main extends JFrame{
         });
         select.add(diyPizza,c);
 
-        frame.add(select);
         select.setBackground(Color.LIGHT_GRAY);
+        frame.add(select);
+        frame.setVisible(true);
+
 
     }
     

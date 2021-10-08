@@ -20,12 +20,12 @@ public class InsertPizza {
     }  
 
     public void insert(int pizza_id, String name, double cost_price, String  vegeterian, String toppings, double profit, double vat, double selling_price) {  
-        String sql = "INSERT INTO pizza(pizza_id, name, cost_price, vegeterian) VALUES(?,?,?,?,?,?,?,?)";  
+        String sql = "INSERT INTO pizza(pizza_id, name, cost_price, vegeterian, toppings, profit, vat, total) VALUES(?,?,?,?,?,?,?,?)";  
    
         try{  
             Connection conn = this.connect();  
             PreparedStatement pstmt = conn.prepareStatement(sql); 
-            pstmt.setInt(1, pizza_id);  
+            pstmt.setDouble(1, pizza_id);  
             pstmt.setString(2, name);  
             pstmt.setDouble(3, cost_price);  
             pstmt.setString(4, vegeterian); 
@@ -35,7 +35,7 @@ public class InsertPizza {
             pstmt.setDouble(8, selling_price);
             
             pstmt.executeUpdate();  
-            
+            System.out.println("data inserted");
         } catch (SQLException e) {  
             System.out.println(e.getMessage());  
             System.out.println("not inserted");

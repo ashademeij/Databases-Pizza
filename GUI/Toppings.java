@@ -1,4 +1,4 @@
-package GUI;
+ package GUI;
 
 import javax.swing.JCheckBox;
 import javax.swing.JFrame;
@@ -104,10 +104,20 @@ public class Toppings {
             }
         });
 
-        JLabel info = new JLabel("Clicking confirm will take you to the menu where you can add drinks and desserts if desired");
+        JLabel info = new JLabel("Clicking confirm will take you");
+        c.gridx = 8;
+        c.gridy = 7;
+        top.add(info,c);
+
+        JLabel info2 = new JLabel("to the menu where you can add drinks");
+        c.gridx = 8;
+        c.gridy = 8;
+        top.add(info2,c);
+
+        JLabel info3 = new JLabel("and desserts if desired");
         c.gridx = 8;
         c.gridy = 9;
-        top.add(info,c);
+        top.add(info3,c);
 
         JButton confirm = new JButton("Confirm Order");
         c.gridx = 8;
@@ -127,7 +137,7 @@ public class Toppings {
     }
 
     public static double calculate(){
-        double total = 0.00;
+        double total = 3.00;
 
         if(cheddar.isSelected()){
             total += allToppings.selectCost("Magherita");

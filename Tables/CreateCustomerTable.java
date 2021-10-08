@@ -18,7 +18,7 @@ public class CreateCustomerTable {
                 + " number INTEGER NOT NULL, "
                 + " address TEXT NOT NULL, "
                 + " area_code INTEGER NOT NULL, "
-                + " no_of_orders INTEGER NOT NULL"
+                + " no_of_pizzas INTEGER NOT NULL"
                 + ");";    
           
         try{  
