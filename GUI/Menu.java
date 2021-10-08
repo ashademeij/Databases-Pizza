@@ -47,8 +47,8 @@ public class Menu {
     public static ArrayList<JCheckBox> list = new ArrayList<JCheckBox>();
 
 
-    public static int width = 800;
-    public static int height = 400;
+    public static int width = 1000;
+    public static int height = 1000;
     /**
      * This method adds all the pizza's to an arraylist to iterate through it 
      */
@@ -82,45 +82,99 @@ public class Menu {
         c.gridy = 0;
         menuPanel.add(pizzas, c);
 
+        //add Margherita
         c.gridx = 0;
         c.gridy = 1;
         menuPanel.add(margherita,c);
-
+        JLabel magT = new JLabel(allPizza.selectTopping("Magherita (V)"));
         c.gridx = 0;
         c.gridy = 2;
-        menuPanel.add(pepperoni,c);
-        
+        menuPanel.add(magT,c);
+
+        //add Pepperoni
         c.gridx = 0;
         c.gridy = 3;
-        menuPanel.add(hawaiian,c);
-        
+        menuPanel.add(pepperoni,c);
+        JLabel pepT = new JLabel(allPizza.selectTopping("Pepperoni"));
         c.gridx = 0;
         c.gridy = 4;
-        menuPanel.add(veggie,c);
+        menuPanel.add(pepT,c);
         
+        //add Hawaiian
         c.gridx = 0;
         c.gridy = 5;
-        menuPanel.add(tonno,c);
-        
+        menuPanel.add(hawaiian,c);
+        JLabel hawT = new JLabel(allPizza.selectTopping("Hawaiian"));
         c.gridx = 0;
         c.gridy = 6;
-        menuPanel.add(bbq,c);
+        menuPanel.add(hawT,c);
 
-        c.gridx = 0;
-        c.gridy = 7;
-        menuPanel.add(cheeses,c);
-
-        c.gridx = 0;
-        c.gridy = 8;
-        menuPanel.add(funghi,c);
-
-        c.gridx = 0;
-        c.gridy = 9;
-        menuPanel.add(mediterranea,c);
+        //add Tonno
         
         c.gridx = 0;
+        c.gridy = 7;
+        menuPanel.add(tonno,c);
+        JLabel tonT = new JLabel(allPizza.selectTopping("Tonno"));
+        c.gridx = 0;
+        c.gridy = 8;
+        menuPanel.add(tonT,c);
+
+
+        //add BBQ
+        c.gridx = 0;
+        c.gridy = 9;
+        menuPanel.add(bbq,c);
+        JLabel bbqT = new JLabel(allPizza.selectTopping("BBQ Chicken"));
+        c.gridx = 0;
         c.gridy = 10;
+        menuPanel.add(bbqT,c);
+
+        //add 4 cheese
+        c.gridx = 0;
+        c.gridy = 11;
+        menuPanel.add(cheeses,c);
+        JLabel cheT = new JLabel(allPizza.selectTopping("Four cheese (V)"));
+        c.gridx = 0;
+        c.gridy = 12;
+        menuPanel.add(cheT,c);
+
+
+        //add funghi
+        c.gridx = 0;
+        c.gridy = 13;
+        menuPanel.add(funghi,c);
+        JLabel funT = new JLabel(allPizza.selectTopping("Funghi (V)"));
+        c.gridx = 0;
+        c.gridy = 14;
+        menuPanel.add(funT,c);
+
+
+        //med
+        c.gridx = 0;
+        c.gridy = 15;
+        menuPanel.add(mediterranea,c);
+        JLabel medT = new JLabel(allPizza.selectTopping("Mediterranea"));
+        c.gridx = 0;
+        c.gridy = 16;
+        menuPanel.add(medT,c);
+        
+
+        //spinaci
+        c.gridx = 0;
+        c.gridy = 17;
         menuPanel.add(spinaci,c);
+        JLabel spiT = new JLabel(allPizza.selectTopping("Spinaci (V)"));
+        c.gridx = 0;
+        c.gridy = 18;
+        menuPanel.add(spiT,c);
+
+        c.gridx = 0;
+        c.gridy = 19;
+        menuPanel.add(veggie,c);
+        JLabel vegT = new JLabel(allPizza.selectTopping("Veggie (V)"));
+        c.gridx = 0;
+        c.gridy = 20;
+        menuPanel.add(vegT,c);
 
         //adding each drink
         JLabel drinks = new JLabel("Drinks");
@@ -177,12 +231,12 @@ public class Menu {
 
         discount = new JTextArea("Enter code");
         c.gridx = 0;
-        c.gridy = 11;
+        c.gridy = 23;
         menuPanel.add(discount,c);
         
         JButton calculate = new JButton("Click to calculate total");
         c.gridx = 10;
-        c.gridy = 11;
+        c.gridy = 23;
         menuPanel.add(calculate,c);
 
         calculate.addActionListener(new ActionListener() {
@@ -195,7 +249,9 @@ public class Menu {
                 c.gridy = 11;
 
                 if(discount.getText().equals("10PIZZA")){
-                    price =  calculator.calculate() * 0.90;
+                    price = calculator.calculate() * 0.90;
+                }else {
+                    price = calculator.calculate();
                 }
                 total.setText(Double.toString(price) + "€");
                 
@@ -206,7 +262,7 @@ public class Menu {
 
         JButton confirm = new JButton("Confirm Order");
         c.gridx = 15;
-        c.gridy = 11;
+        c.gridy = 23;
         menuPanel.add(confirm,c);
 
         confirm.addActionListener(new ActionListener() {
@@ -218,8 +274,8 @@ public class Menu {
                         frame2.dispose();
                         ConfirmOrder confirmation = new ConfirmOrder();
                         confirmation.order();
+                    
                     }else{
-                        
                         JPanel w = new JPanel();
                         w.setLayout(new GridBagLayout());
                         warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
@@ -230,10 +286,13 @@ public class Menu {
                         w.add(warning);
                         warn.setVisible(true);
                     }
+                    
                 }
                 
             }
         });
+
+
         
         frame2.add(menuPanel);
     }

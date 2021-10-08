@@ -24,14 +24,15 @@ public class Main extends JFrame{
 
     public static String name;
 
-    public static int width = 800;
-    public static int height = 400;
+    public static int width = 1000;
+    public static int height = 1000;
 
     public static double id;
     
     public static void main(String []args){
         window();
     }
+
     /**
      * This method creates the initial customer log-in menu
      */

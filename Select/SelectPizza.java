@@ -64,12 +64,32 @@ public class SelectPizza {
         return x;
     }
 
+    public String selectTopping(String name){
+        String sql = "SELECT toppings FROM pizza WHERE name='" + name + "';";
+        String x = "";
+
+        try {  
+            Connection conn = this.connect();  
+            Statement stmt  = conn.createStatement();  
+            ResultSet rs    = stmt.executeQuery(sql);  
+              
+            // loop through the result set  
+            while (rs.next()) {  
+                x = rs.getString("toppings");   
+            }  
+        } catch (SQLException e) {  
+            System.out.println(e.getMessage());  
+        }  
+        return x;
+    }
+
       /** 
      * @param args the command line arguments 
      */  
     public static void main(String[] args) {  
         SelectPizza app = new SelectPizza();  
         app.selectAll();  
+        //System.out.print(app.selectTopping(""));
     }  
     
 }
