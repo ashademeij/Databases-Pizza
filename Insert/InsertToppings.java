@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;  
 import java.sql.SQLException;  
 
+//InsertToppings : we need to delete this table and add it again, the cheese name's where wrong
 public class InsertToppings {
 
     private Connection connect() {  
@@ -38,7 +39,7 @@ public class InsertToppings {
     public static void main(String[] args) {  
    
         InsertToppings app = new InsertToppings();  
-        app.insert(1,"Cheese_1", 1); 
+        app.insert(1,"Chedder", 1); 
         app.insert(2,"Pepperoni", 3); 
         app.insert(3,"Pineapple", 2);  
         app.insert(4,"Peppers", 2); 
@@ -47,9 +48,9 @@ public class InsertToppings {
         app.insert(7,"Mushrooms", 2); 
         app.insert(8,"Scampis", 5); 
         app.insert(9,"Spinach", 2); 
-        app.insert(10,"Cheese_2", 2); 
-        app.insert(11,"Cheese_3", 2); 
-        app.insert(12,"Cheese_4", 2); 
+        app.insert(10,"Emmental", 2); 
+        app.insert(11,"Mozzarella", 2); 
+        app.insert(12,"Gouda", 2); 
  
     }
     
