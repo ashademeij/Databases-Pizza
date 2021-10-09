@@ -11,7 +11,6 @@ import java.util.ArrayList;
 import java.awt.*;
 
 public class Menu {
-
     public static JPanel menuPanel = new JPanel();
     public static JFrame frame2 = new JFrame("Pizza Menu");
 
@@ -46,11 +45,9 @@ public class Menu {
 
     public static ArrayList<JCheckBox> list = new ArrayList<JCheckBox>();
 
-
     public static int width = 1000;
     public static int height = 1000;
 
-   
     /**
      * This method adds all the pizza's to an arraylist to iterate through it 
      */
@@ -112,7 +109,6 @@ public class Menu {
         menuPanel.add(hawT,c);
 
         //add Tonno
-        
         c.gridx = 0;
         c.gridy = 7;
         menuPanel.add(tonno,c);
@@ -120,7 +116,6 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 8;
         menuPanel.add(tonT,c);
-
 
         //add BBQ
         c.gridx = 0;
@@ -140,7 +135,6 @@ public class Menu {
         c.gridy = 12;
         menuPanel.add(cheT,c);
 
-
         //add funghi
         c.gridx = 0;
         c.gridy = 13;
@@ -149,7 +143,6 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 14;
         menuPanel.add(funT,c);
-
 
         //med
         c.gridx = 0;
@@ -160,7 +153,6 @@ public class Menu {
         c.gridy = 16;
         menuPanel.add(medT,c);
         
-
         //spinaci
         c.gridx = 0;
         c.gridy = 17;
@@ -197,11 +189,9 @@ public class Menu {
         c.gridy = 3;
         menuPanel.add(fanta,c);
 
-
         c.gridx = 9;
         c.gridy = 4;
         menuPanel.add(iceTea,c);
-
         
         c.gridx = 9;
         c.gridy = 5;
@@ -218,18 +208,9 @@ public class Menu {
         c.gridy = 1;
         menuPanel.add(tiramisu,c);
 
-        
         c.gridx = 15;
         c.gridy = 2;
         menuPanel.add(iceCream,c);
-
-        //total cost of order
-        /*
-        JLabel discountReminder = new JLabel("Enter your discount code:");
-        c.gridx = 0;
-        c.gridy = 11;
-        menuPanel.add(discountReminder, c);
-        */
 
         discount = new JTextArea("Enter code");
         c.gridx = 0;

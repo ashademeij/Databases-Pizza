@@ -175,10 +175,8 @@ public class Main extends JFrame{
                 infoF.setVisible(true);            
             }
         });
-
         select.add(infoB,c);
         
-
         JButton menuPizza = new JButton("Choose a pizza from our menu!");
         c.gridx = 0;
         c.gridwidth = 5;
@@ -207,8 +205,7 @@ public class Main extends JFrame{
             }
         });
         select.add(diyPizza,c);
-
-        select.setBackground(Color.LIGHT_GRAY);
+        
         frame.add(select);
         frame.setVisible(true);
 
