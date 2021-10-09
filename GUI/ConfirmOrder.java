@@ -17,10 +17,12 @@ public class ConfirmOrder {
     public static GridBagConstraints c = new GridBagConstraints();
     public StringBuilder list = new StringBuilder();
 
+    public static JLabel status = new JLabel();
+    private static int updates;
+    private static String updateText = "Status of order: ";
+
     //public static JLabel passedTime;
     //public static JLabel timeOver;
-
-
     public int index = 15;
 
     public void order(){
@@ -51,33 +53,77 @@ public class ConfirmOrder {
         c.gridy = 4;
         orderPanel.add(time,c);
 
-        JButton update = new JButton("Delivery Time Update");
+        JButton updateT = new JButton("Delivery Time Update");
         
-        update.addActionListener(new ActionListener() {
+        updateT.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 index--;
                 time.setText("Estimated delivery time is: " + index + "mins");
                 orderFrame.setSize(width+1,height+1);
             }
         });
-        c.gridx = 1;
-        c.gridy = 5;
-        orderPanel.add(update,c);
+        c.gridx = 0;
+        c.gridy = 8;
+        orderPanel.add(updateT,c);
 
+        //orderPanel.add(passedTime);
+        //orderPanel.add(passedTime);
 
-        
         JButton cancel = new JButton("Cancel Order");
         orderPanel.add(cancel);
-        //orderPanel.add(passedTime);
-        //orderPanel.add(passedTime);
+        
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
-                
+                /*
+                if(time > 5 mins){
+                    JPanel w = new JPanel();
+                        w.setLayout(new GridBagLayout());
+                        warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                        warn.setSize(200,150);
+                        
+                        JLabel warning = new JLabel("5 minutes has passed, cannot cancel order");
+                        warn.add(w);
+                        w.add(warning);
+                        warn.setVisible(true);
+                }
+                */
+                updates = -1;
+                status.setText(updateText + "Cancelled");
+
             }
         });
         c.gridx = 0;
-        c.gridy = 7;
+        c.gridy = 12;
         orderPanel.add(cancel,c);
+
+        JButton updateS = new JButton("Check status");
+        c.gridx = 0;
+        c.gridy = 6;
+        orderPanel.add(status,c);
+
+        updateS.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent event) {
+                
+                if(updates == -1){
+                    status.setText(updateText + "Cancelled");
+                }
+                else if(updates == 0){
+                    status.setText(updateText + "In process");
+                    updates++;
+                }else if(updates == 1){
+                    status.setText(updateText + "Out for delivery");
+                    updates++;
+                }else if(updates == 2){
+                    status.setText(updateText + "Delivered");
+                    updates++;
+                }
+
+                orderFrame.setSize(width-1,height+1);
+            }
+        });
+        c.gridx = 0;
+        c.gridy = 10;
+        orderPanel.add(updateS,c);
 
         orderFrame.add(orderPanel);
         orderFrame.setVisible(true);

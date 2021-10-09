@@ -19,16 +19,16 @@ public class Menu {
     public static GridBagConstraints c = new GridBagConstraints();
 
     public static SelectPizza allPizza = new SelectPizza();
-    public static JCheckBox margherita = new JCheckBox("Margherita");
+    public static JCheckBox margherita = new JCheckBox("Margherita (V)");
     public static JCheckBox pepperoni = new JCheckBox("Pepperoni");
     public static JCheckBox hawaiian = new JCheckBox("Hawaiian");
-    public static JCheckBox veggie = new JCheckBox("Veggie");
+    public static JCheckBox veggie = new JCheckBox("Veggie (V)");
     public static JCheckBox tonno = new JCheckBox("Tonno");
     public static JCheckBox bbq = new JCheckBox("BBQ Chicken");
-    public static JCheckBox cheeses = new JCheckBox("Four Cheese");
-    public static JCheckBox funghi = new JCheckBox("Funghi");
+    public static JCheckBox cheeses = new JCheckBox("Four Cheese (V)");
+    public static JCheckBox funghi = new JCheckBox("Funghi (V)");
     public static JCheckBox mediterranea = new JCheckBox("Mediterranea");
-    public static JCheckBox spinaci = new JCheckBox("Spinaci");
+    public static JCheckBox spinaci = new JCheckBox("Spinaci (V)");
 
     public static SelectDrinks allDrinks = new SelectDrinks();
     public static JCheckBox coke = new JCheckBox("Coke");
@@ -49,6 +49,8 @@ public class Menu {
 
     public static int width = 1000;
     public static int height = 1000;
+
+   
     /**
      * This method adds all the pizza's to an arraylist to iterate through it 
      */
@@ -86,7 +88,7 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 1;
         menuPanel.add(margherita,c);
-        JLabel magT = new JLabel(allPizza.selectTopping("Magherita (V)"));
+        JLabel magT = new JLabel(allPizza.selectTopping("Magherita"));
         c.gridx = 0;
         c.gridy = 2;
         menuPanel.add(magT,c);
@@ -133,7 +135,7 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 11;
         menuPanel.add(cheeses,c);
-        JLabel cheT = new JLabel(allPizza.selectTopping("Four cheese (V)"));
+        JLabel cheT = new JLabel(allPizza.selectTopping("Four cheese"));
         c.gridx = 0;
         c.gridy = 12;
         menuPanel.add(cheT,c);
@@ -143,7 +145,7 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 13;
         menuPanel.add(funghi,c);
-        JLabel funT = new JLabel(allPizza.selectTopping("Funghi (V)"));
+        JLabel funT = new JLabel(allPizza.selectTopping("Funghi"));
         c.gridx = 0;
         c.gridy = 14;
         menuPanel.add(funT,c);
@@ -163,7 +165,7 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 17;
         menuPanel.add(spinaci,c);
-        JLabel spiT = new JLabel(allPizza.selectTopping("Spinaci (V)"));
+        JLabel spiT = new JLabel(allPizza.selectTopping("Spinaci"));
         c.gridx = 0;
         c.gridy = 18;
         menuPanel.add(spiT,c);
@@ -171,7 +173,7 @@ public class Menu {
         c.gridx = 0;
         c.gridy = 19;
         menuPanel.add(veggie,c);
-        JLabel vegT = new JLabel(allPizza.selectTopping("Veggie (V)"));
+        JLabel vegT = new JLabel(allPizza.selectTopping("Veggie"));
         c.gridx = 0;
         c.gridy = 20;
         menuPanel.add(vegT,c);
@@ -246,7 +248,7 @@ public class Menu {
                 Calculate calculator = new Calculate();
                 
                 c.gridx = 3;
-                c.gridy = 11;
+                c.gridy = 23;
 
                 if(discount.getText().equals("10PIZZA")){
                     price = calculator.calculate() * 0.90;
@@ -292,8 +294,6 @@ public class Menu {
             }
         });
 
-
-        
         frame2.add(menuPanel);
     }
 }
