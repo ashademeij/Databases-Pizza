@@ -21,6 +21,7 @@ public class ConfirmOrder {
     private static String updateText = "Status of order: ";
 
 
+
     public static JLabel timerL;
     public static int sec = 0;
     public static int min = 0;
@@ -29,6 +30,10 @@ public class ConfirmOrder {
     public static String displayMin = String.format("%02d", min); 
     public static boolean started = false;
     //public static JLabel passedTime;
+
+    private static JButton cancel;
+    public static JLabel passedTime;
+
     //public static JLabel timeOver;
     public int index = 15;
 
@@ -76,7 +81,7 @@ public class ConfirmOrder {
         //orderPanel.add(passedTime);
         //orderPanel.add(passedTime);
 
-        JButton cancel = new JButton("Cancel Order");
+        cancel = new JButton("Cancel Order");
         orderPanel.add(cancel);
         
         cancel.addActionListener(new ActionListener() {
@@ -84,14 +89,14 @@ public class ConfirmOrder {
                 /*
                 if(time > 5 mins){
                     JPanel w = new JPanel();
-                        w.setLayout(new GridBagLayout());
-                        warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                        warn.setSize(200,150);
+                    w.setLayout(new GridBagLayout());
+                    warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+                    warn.setSize(200,150);
                         
-                        JLabel warning = new JLabel("5 minutes has passed, cannot cancel order");
-                        warn.add(w);
-                        w.add(warning);
-                        warn.setVisible(true);
+                    JLabel warning = new JLabel("5 minutes has passed, cannot cancel order");
+                    warn.add(w);
+                    w.add(warning);
+                    warn.setVisible(true);
                 }
                 */
                 updates = -1;
