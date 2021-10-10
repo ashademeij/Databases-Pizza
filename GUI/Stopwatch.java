@@ -16,7 +16,6 @@ public class Stopwatch implements ActionListener{
     int min = 0;
     int elapsedT = 0;
     
-    
     String displaySec = String.format("%02d", sec);
     String displayMin = String.format("%02d", min); 
     boolean started = false;
