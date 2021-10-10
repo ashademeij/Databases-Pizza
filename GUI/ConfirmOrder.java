@@ -5,8 +5,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class ConfirmOrder {
     public static JPanel orderPanel = new JPanel();
@@ -21,6 +20,14 @@ public class ConfirmOrder {
     private static int updates;
     private static String updateText = "Status of order: ";
 
+
+    public static JLabel timerL;
+    public static int sec = 0;
+    public static int min = 0;
+    public static int elapsedT = 0;
+    public static String displaySec = String.format("%02d", sec);
+    public static String displayMin = String.format("%02d", min); 
+    public static boolean started = false;
     //public static JLabel passedTime;
     //public static JLabel timeOver;
     public int index = 15;
@@ -153,6 +160,7 @@ public class ConfirmOrder {
             }
 
         }*/
+        
     
 }
 
