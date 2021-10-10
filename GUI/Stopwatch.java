@@ -4,9 +4,9 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
-public class Stopwatch implements ActionListener{
+public class Stopwatch extends Menu implements ActionListener{
     JFrame frame = new JFrame(); //NO NEED FOR THIS BC WE'RE JUST USING THE LABEL
-    JButton startB = new JButton("CONFIRM");
+    //JButton startB = new JButton("CONFIRM");
     JLabel timerL = new JLabel();
     JLabel overL = new JLabel("");
 
@@ -62,7 +62,7 @@ public class Stopwatch implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent e) {
   
-        if(e.getSource()==startB) {
+        if(e.getSource()==confirm) {
             
             //ADD IN CONFIRM ACTION LISTENER
             if(started==false) {

@@ -48,6 +48,8 @@ public class Menu {
     public static int width = 1000;
     public static int height = 1000;
 
+    public static JButton confirm;
+
     /**
      * This method adds all the pizza's to an arraylist to iterate through it 
      */
@@ -243,7 +245,7 @@ public class Menu {
             }
         });
 
-        JButton confirm = new JButton("Confirm Order");
+        confirm = new JButton("Confirm Order");
         c.gridx = 15;
         c.gridy = 23;
         menuPanel.add(confirm,c);
