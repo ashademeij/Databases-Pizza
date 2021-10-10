@@ -252,10 +252,13 @@ public class Menu {
             
             public void actionPerformed(ActionEvent event) {
                 
-                for(JCheckBox i : list){
-                    if(i.isSelected()){
+                
+                    if(list.get(0).isSelected() || list.get(1).isSelected() || list.get(2).isSelected() || list.get(3).isSelected() || list.get(4).isSelected() 
+                    || list.get(5).isSelected() || list.get(6).isSelected() || list.get(7).isSelected() || list.get(8).isSelected() || list.get(9).isSelected()){
+                        
                         frame2.dispose();
                         ConfirmOrder confirmation = new ConfirmOrder();
+                        Stopwatch stopwatch = new Stopwatch();
                         confirmation.order();
                     
                     }else{
@@ -270,11 +273,13 @@ public class Menu {
                         warn.setVisible(true);
                     }
                     
-                }
+                
                 
             }
         });
 
         frame2.add(menuPanel);
     }
+
+    
 }

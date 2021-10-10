@@ -10,6 +10,7 @@ import java.awt.event.*;
 public class ConfirmOrder {
     public static JPanel orderPanel = new JPanel();
     public static JFrame orderFrame = new JFrame();
+
     public static int width = 800;
     public static int height = 500;
     public static GridBagLayout gl = new GridBagLayout();
@@ -20,7 +21,7 @@ public class ConfirmOrder {
     private static int updates;
     private static String updateText = "Status of order: ";
 
-
+    public static Menu m = new Menu();
 
     public static JLabel timerL;
     public static int sec = 0;
@@ -29,12 +30,10 @@ public class ConfirmOrder {
     public static String displaySec = String.format("%02d", sec);
     public static String displayMin = String.format("%02d", min); 
     public static boolean started = false;
-    //public static JLabel passedTime;
 
     private static JButton cancel;
-    public static JLabel passedTime;
 
-    //public static JLabel timeOver;
+    public static JLabel passedTime;
     public int index = 15;
 
     public void order(){
@@ -86,8 +85,10 @@ public class ConfirmOrder {
         
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
+                
                 /*
-                if(time > 5 mins){
+                if(stopwatch > 5 ){
+                    JFrame warn = new JFrame("Warning");
                     JPanel w = new JPanel();
                     w.setLayout(new GridBagLayout());
                     warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
