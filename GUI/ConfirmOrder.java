@@ -86,8 +86,7 @@ public class ConfirmOrder {
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 
-                Menu s = new Menu();
-                if( (s.stopwatch.min) > 5 ){
+                if( (m.stopwatch.sec) > 1 ){
                     JFrame warn = new JFrame("Warning");
                     JPanel w = new JPanel();
                     w.setLayout(new GridBagLayout());
@@ -98,6 +97,7 @@ public class ConfirmOrder {
                     warn.add(w);
                     w.add(warning);
                     warn.setVisible(true);
+
                 }else {
                     updates = -1;
                     status.setText(updateText + "Cancelled");

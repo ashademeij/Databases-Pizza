@@ -33,7 +33,7 @@ public class Stopwatch extends Menu implements ActionListener{
             timerL.setText(displayMin+":"+displaySec);
             
             
-            if(min > 5){ 
+            if(sec > 1){ 
                 overL.setText("Canecellation no longer possible");
             }
         }
