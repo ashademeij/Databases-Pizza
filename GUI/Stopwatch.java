@@ -33,7 +33,7 @@ public class Stopwatch extends Menu implements ActionListener{
             timerL.setText(displayMin+":"+displaySec);
             
             
-            if(min > 300){ 
+            if(min > 5){ 
                 overL.setText("Canecellation no longer possible");
             }
         }
@@ -67,7 +67,7 @@ public class Stopwatch extends Menu implements ActionListener{
 
         panel.setLayout(new GridBagLayout());
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(250,150);
+        frame.setSize(300,300);
         
         // need this
         timerL.setText(displayMin+":"+displaySec);

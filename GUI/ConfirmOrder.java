@@ -87,12 +87,12 @@ public class ConfirmOrder {
             public void actionPerformed(ActionEvent event) {
                 
                 Menu s = new Menu();
-                if( (s.stopwatch.min) > 1 ){
+                if( (s.stopwatch.min) > 5 ){
                     JFrame warn = new JFrame("Warning");
                     JPanel w = new JPanel();
                     w.setLayout(new GridBagLayout());
                     warn.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-                    warn.setSize(200,150);
+                    warn.setSize(300,300);
                         
                     JLabel warning = new JLabel("5 minutes has passed, cannot cancel order");
                     warn.add(w);
