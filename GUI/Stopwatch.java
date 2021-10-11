@@ -9,6 +9,7 @@ public class Stopwatch extends Menu implements ActionListener{
     //JButton startB = new JButton("CONFIRM");
     JLabel timerL = new JLabel();
     JLabel overL = new JLabel("");
+    JPanel panel = new JPanel();
 
     public static ConfirmOrder cn = new ConfirmOrder();
 
@@ -32,32 +33,21 @@ public class Stopwatch extends Menu implements ActionListener{
             timerL.setText(displayMin+":"+displaySec);
             
             
-            if(displayMin.equals("1")){ //THIS SHIT DOESN'T WORK FOR SUM REASON
+            if(min > 300){ 
                 overL.setText("Canecellation no longer possible");
-                timer.stop();
             }
         }
     });
  
  
     Stopwatch(){
-        // need this
-        timerL.setText(displayMin+":"+displaySec);
-        timerL.setBounds(100,100,200,100);
-        timerL.setHorizontalAlignment(JTextField.CENTER);
-        timerL.setFont(new Font("Verdana",Font.PLAIN,40));
-        timerL.setOpaque(true);
         
-        //WE JUST NEED TO ADD THESE TO OUR PANEL
-        cn.orderPanel.add(overL,cn.c);
-        cn.c.gridx = 0;
-        cn.c.gridy = 16;
-        
-        
-        cn.orderPanel.add(timerL,cn.c);
-        cn.c.gridx = 0;
-        cn.c.gridy = 14;
     }
+
+    public void now(){
+        start();
+    }
+
  
     @Override
     public void actionPerformed(ActionEvent e) {
@@ -74,6 +64,24 @@ public class Stopwatch extends Menu implements ActionListener{
  
     void start() {
         timer.start();
+
+        panel.setLayout(new GridBagLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(250,150);
+        
+        // need this
+        timerL.setText(displayMin+":"+displaySec);
+        timerL.setBounds(100,100,200,100);
+        timerL.setHorizontalAlignment(JTextField.CENTER);
+        timerL.setFont(new Font("Verdana",Font.PLAIN,40));
+        timerL.setOpaque(true);
+        
+        
+        panel.add(overL);
+        panel.add(timerL);
+        frame.add(panel);
+
+        frame.setVisible(true);
     }
  
     void stop() {

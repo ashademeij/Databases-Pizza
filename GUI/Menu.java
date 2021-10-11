@@ -49,6 +49,7 @@ public class Menu {
     public static int height = 1000;
 
     public static JButton confirm;
+    public static Stopwatch stopwatch = new Stopwatch();
 
     /**
      * This method adds all the pizza's to an arraylist to iterate through it 
@@ -257,10 +258,12 @@ public class Menu {
                 
                     if(list.get(0).isSelected() || list.get(1).isSelected() || list.get(2).isSelected() || list.get(3).isSelected() || list.get(4).isSelected() 
                     || list.get(5).isSelected() || list.get(6).isSelected() || list.get(7).isSelected() || list.get(8).isSelected() || list.get(9).isSelected()){
-                        
+
                         frame2.dispose();
                         ConfirmOrder confirmation = new ConfirmOrder();
-                        Stopwatch stopwatch = new Stopwatch();
+                        
+                        stopwatch.now();
+
                         confirmation.order();
                     
                     }else{

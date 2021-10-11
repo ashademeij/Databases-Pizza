@@ -44,7 +44,7 @@ public class ConfirmOrder {
         
         JLabel conf = new JLabel("Your order summary is ");
         c.gridx = 0;
-        c.gridy = 0;
+        c.gridy = 2;
         c.gridwidth = 10;
         orderPanel.add(conf);
 
@@ -56,12 +56,12 @@ public class ConfirmOrder {
         }
         order.setText(list.toString());
         c.gridx = 0;
-        c.gridy = 2;
+        c.gridy = 4;
         orderPanel.add(order,c);
 
         JLabel time = new JLabel("Estimated delivery time is: " + index + "mins");
         c.gridx = 0;
-        c.gridy = 4;
+        c.gridy = 6;
         orderPanel.add(time,c);
 
         JButton updateT = new JButton("Delivery Time Update");
@@ -74,7 +74,7 @@ public class ConfirmOrder {
             }
         });
         c.gridx = 0;
-        c.gridy = 8;
+        c.gridy = 10;
         orderPanel.add(updateT,c);
 
         //orderPanel.add(passedTime);
@@ -86,8 +86,8 @@ public class ConfirmOrder {
         cancel.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent event) {
                 
-                /*
-                if(stopwatch > 5 ){
+                Menu s = new Menu();
+                if( (s.stopwatch.min) > 1 ){
                     JFrame warn = new JFrame("Warning");
                     JPanel w = new JPanel();
                     w.setLayout(new GridBagLayout());
@@ -98,11 +98,11 @@ public class ConfirmOrder {
                     warn.add(w);
                     w.add(warning);
                     warn.setVisible(true);
+                }else {
+                    updates = -1;
+                    status.setText(updateText + "Cancelled");
                 }
-                */
-                updates = -1;
-                status.setText(updateText + "Cancelled");
-
+                
             }
         });
         c.gridx = 0;
@@ -111,7 +111,7 @@ public class ConfirmOrder {
 
         JButton updateS = new JButton("Check status");
         c.gridx = 0;
-        c.gridy = 6;
+        c.gridy = 8;
         orderPanel.add(status,c);
 
         updateS.addActionListener(new ActionListener() {
@@ -135,7 +135,7 @@ public class ConfirmOrder {
             }
         });
         c.gridx = 0;
-        c.gridy = 10;
+        c.gridy = 12;
         orderPanel.add(updateS,c);
 
         orderFrame.add(orderPanel);
